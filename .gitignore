@@ -6,6 +6,8 @@ node_modules/
 
 # 配置忽略 dist 目录
 dist/
+.cache
+.temp
 
 # 配置忽略 coverage 目录
 coverage/
