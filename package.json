@@ -1,0 +1,15 @@
+{
+  "name": "blog_by_vuepress_v2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "SayNop <a2045751@163.com>",
+  "license": "MIT",
+  "dependencies": {
+    "vuepress": "^2.0.0-beta.64"
+  },
+
+  "scripts": {
+    "blog:dev": "vuepress dev blog",
+    "blog:build": "vuepress build blog"
+  }
+}
