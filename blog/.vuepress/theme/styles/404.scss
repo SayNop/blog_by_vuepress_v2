@@ -1,13 +1,13 @@
 .log_404 {
     margin-top: 14rem;
-    // margin-bottom: 2rem;
+    margin-bottom: 2rem;
     font-weight: 900;
     font-size: 5rem;
 }
 
 .msg_404 {
     margin-top: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     font-weight: 900;
     font-size: 1.25rem;
 }
@@ -15,11 +15,10 @@
 .home_btn {
     text-decoration: inherit;
     border-radius: 0.5rem;
-    border: 2px solid var(--c-brand-light);
+    border: 2px solid var(--theme-color-light);
     background-color: transparent;
     padding: 0.5rem;
-    // color: inherit;
     &:hover, &:active {
-        border: 2px solid var(--c-brand)
+        border: 2px solid var(--theme-color)
     }
 }

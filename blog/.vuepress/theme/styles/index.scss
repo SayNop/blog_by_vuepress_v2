@@ -9,6 +9,8 @@ body {
     font-weight: 400;
     color: var(--c-text);
     background-color: var(--c-bg);
+    background: url(/assets/imgs/bg07.jpeg) no-repeat center / cover;
+    background-attachment: fixed;
     direction: ltr;
     font-synthesis: none;
     text-rendering: optimizeLegibility;

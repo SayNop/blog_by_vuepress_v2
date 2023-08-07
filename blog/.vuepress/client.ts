@@ -1,6 +1,7 @@
 import { defineClientConfig } from '@vuepress/client'
 
 import './theme/styles/index.scss'
+import './theme/styles/vars.scss'
 
 import NotFound from './theme/layouts/404.vue'
 
