@@ -22,7 +22,6 @@
                             </svg>
                         </span>
                     </span>
-                
                 </button>
                 <button class="switch mobile_list_btn" type="button" @click="show_Slide">
                     <span class="btn_top"></span>

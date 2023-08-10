@@ -13,7 +13,7 @@
     left: 50%;
     margin-left: -1rem;
     bottom: 1rem;
-    // fill: var(--card-bg-color);  todo: set font color
+    fill: var(--c-text);
     animation: animation_icon .8s cubic-bezier(.445, .05, .55, .95) .2s infinite alternate;
     // -webkit-animation: animation_icon .8s cubic-bezier(.445, .05, .55, .95) .2s infinite alternate;
 }
