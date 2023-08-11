@@ -17,3 +17,12 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+
+.icon {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    overflow: hidden;
+    fill: var(--c-text);
+}

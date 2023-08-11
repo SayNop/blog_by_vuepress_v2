@@ -7,7 +7,7 @@
 
 
 <script>
-import navbar_wrapper from '../components/navbar.vue'
+import navbar_wrapper from '../components/header.vue'
 import pull_down_icon from '../components/icons/pull_down.vue'
 import footer_wrapper from '../components/footer.vue'
 

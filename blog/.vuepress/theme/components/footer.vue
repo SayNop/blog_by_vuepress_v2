@@ -6,11 +6,6 @@
     </footer>
 </template>
 
-
-<style scoped lang="scss">
-    @import '../styles/footer';
-</style>
-
 <script lang="ts">
 import { useThemeData } from '@vuepress/plugin-theme-data/client'
 import type { ThemeData } from '@vuepress/plugin-theme-data/client'
@@ -25,3 +20,22 @@ export default {
     }
 }
 </script>
+
+<style scoped lang="scss">
+.page_footer {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.footer_middle {
+    flex-grow: 1;
+    margin: 2rem 0;
+    min-height: auto;
+    padding: 30px;
+    width: 50%;
+    color: #7a7a7a;
+    text-align: center;
+}
+</style>
