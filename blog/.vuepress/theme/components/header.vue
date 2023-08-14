@@ -114,11 +114,48 @@ export default {
     background-color: transparent;
     padding: 0.5rem;
     &:hover, &:active {
+        // border-color: var(--c-text);
         border-color: var(--theme-color);
     }
 }
 
 .mobile_list_btn {
     display: none;
+}
+
+
+@media (max-width: 767px) {
+    .header {
+        // 移动模式下header常驻
+        opacity: 1 !important;
+    }
+    .appearance {
+        display: flex;
+    }
+    .mobile_list_btn {
+        position: relative;
+        display: block;
+        width: 36px;
+    
+        span {
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background-color: var(--c-text);
+        }
+        .btn_top {
+            top: 10px;
+        }
+        .btn_middle {
+            top: 50%;
+            margin-top: -1px;
+        }
+        .btn_bottom {
+            bottom: 10px;
+        }
+    }
 }
 </style>
