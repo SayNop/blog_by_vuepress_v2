@@ -21,7 +21,7 @@
     </header>
 </template>
 
-<script>
+<script> 
 import icon_sun from '../components/icons/sun.vue'
 import icon_moon from '../components/icons/moon.vue'
 
@@ -111,6 +111,7 @@ export default {
     &:hover, &:active {
         // border-color: var(--c-text);
         border-color: var(--theme-color);
+        cursor: pointer;
     }
 }
 

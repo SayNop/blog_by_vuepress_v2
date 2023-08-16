@@ -4,4 +4,9 @@
     --theme-color-light: var(--c-brand-light);  // #4abf8a
     --header-color: #ffffffb3;
     --header-z-index: 9;
+    --card-radius: 10px;
+}
+
+.dark {
+    --header-color: #000000b3;
 }

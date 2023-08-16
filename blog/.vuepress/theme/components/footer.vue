@@ -24,14 +24,16 @@ export default {
 <style scoped lang="scss">
 .page_footer {
     width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    // margin-left: auto;
+    // margin-right: auto;
+    margin: 2rem auto;
     display: flex;
+    background-color: var(--c-bg);
+    border-radius: var(--card-radius);
 }
 
 .footer_middle {
     flex-grow: 1;
-    margin: 2rem 0;
     min-height: auto;
     padding: 30px;
     width: 50%;

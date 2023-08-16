@@ -1,6 +1,7 @@
 <template>
     <div>
         <navbar_wrapper />
+        <br>
         <footer_wrapper />
     </div>
 </template>
