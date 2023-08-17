@@ -2,6 +2,12 @@ import { themeDataPlugin } from '@vuepress/plugin-theme-data'
 
 
 export default {
+    head: [
+        [
+            'link', // 设置 favicon.ico，注意图片放在 public 文件夹下
+            { rel: 'icon', href: 'favicon.ico' }
+        ]
+    ],
     plugins: [
       themeDataPlugin({
         themeData: {
