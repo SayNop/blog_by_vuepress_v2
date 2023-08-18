@@ -87,6 +87,7 @@ export default {
 }
 
 .header_container {
+    height: var(--header-heigth);
     display: flex;
     align-items: center;
     justify-content: space-between;

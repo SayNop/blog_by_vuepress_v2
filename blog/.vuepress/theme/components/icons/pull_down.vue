@@ -13,8 +13,22 @@
     left: 50%;
     margin-left: -1rem;
     bottom: 1rem;
-    fill: var(--c-text);
+    // fill: var(--c-text);
+    fill: var(--c-bg);
     animation: animation_icon .8s cubic-bezier(.445, .05, .55, .95) .2s infinite alternate;
     // -webkit-animation: animation_icon .8s cubic-bezier(.445, .05, .55, .95) .2s infinite alternate;
+}
+
+@keyframes animation_icon {
+    0% {
+        opacity: 0;
+        transform: translateY(-30%);
+        // -webkit-transform: translateY(-30%);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+        // -webkit-transform: none;
+    }
 }
 </style>
