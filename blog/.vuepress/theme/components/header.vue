@@ -22,8 +22,8 @@
 </template>
 
 <script> 
-import icon_sun from '../components/icons/sun.vue'
-import icon_moon from '../components/icons/moon.vue'
+import icon_sun from './icons/sun.vue'
+import icon_moon from './icons/moon.vue'
 
 export default {
     name: 'navbar_wrapper',

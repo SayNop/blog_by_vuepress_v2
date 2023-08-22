@@ -1,0 +1,17 @@
+.icon {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    overflow: hidden;
+    fill: var(--c-text);
+}
+
+
+.card_border {
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    min-height: 20rem;
+    background-color: var(--c-bg);
+    position: relative;
+    // box-shadow: 0 0 10px var(--card-shadow);
+}

@@ -28,8 +28,6 @@ export default {
     // margin-right: auto;
     margin: 2rem auto;
     display: flex;
-    background-color: var(--c-bg);
-    border-radius: var(--card-radius);
 }
 
 .footer_middle {

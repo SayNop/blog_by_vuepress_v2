@@ -6,7 +6,7 @@
 
 
 <script>
-import pull_down_icon from '../components/icons/pull_down.vue'
+import pull_down_icon from './icons/pull_down.vue'
 
 export default {
     components: {
