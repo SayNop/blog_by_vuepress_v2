@@ -21,56 +21,50 @@
     </header>
 </template>
 
-<script> 
+<script setup> 
+import {ref, onMounted} from 'vue'
+
 import icon_sun from './icons/sun.vue'
 import icon_moon from './icons/moon.vue'
 
-export default {
-    name: 'navbar_wrapper',
-    components: {
-        icon_sun,
-        icon_moon,
-    },
-    data() {
-        return {
-            is_dark: false,
-            show_slide: false,
-        }
-    }, 
-    methods: {
-        handleDark(){
-            this.is_dark = !this.is_dark
-            if(this.is_dark){
-                document.documentElement.className = 'dark'
-                localStorage.setItem('theme', 'dark')
+// data
+const is_dark = ref(false)
+const show_slide = ref(false)
 
-            } else {
-                document.documentElement.className = ''
-                localStorage.setItem('theme', 'light')
-            }
-        },
-        show_Slide(){
-            this.$emit('slide_switch')
-        }
-    },
-    mounted() {
-        if( localStorage.getItem('theme') ) {
-            if( localStorage.getItem('theme') == 'dark' ) {
-                this.is_dark=true
-                document.documentElement.className = 'dark'
-            } else {
-                this.is_dark=false
-                document.documentElement.className = ''
-            }
-        } else {
-            localStorage.setItem('theme', 'light')
-            this.is_dark = false
-        }
-        // window.addEventListener('scroll', this.handleScroll, true)
-        // if(window.screen.availWidth > 767) document.body.addEventListener('touchstart',function(){})
-        if(document.body.clientWidth > 767) document.body.addEventListener('touchstart',function(){})
+// methods
+const handleDark = () => {
+    is_dark.value = !is_dark.value
+    if(is_dark.value){
+        document.documentElement.className = 'dark'
+        localStorage.setItem('theme', 'dark')
+
+    } else {
+        document.documentElement.className = ''
+        localStorage.setItem('theme', 'light')
     }
 }
+const show_Slide = () => {
+    emit('slide_switch')
+}
+
+
+onMounted(() => {
+    if( localStorage.getItem('theme') ) {
+        if( localStorage.getItem('theme') == 'dark' ) {
+            is_dark.value = true
+            document.documentElement.className = 'dark'
+        } else {
+            is_dark .value= false
+            document.documentElement.className = ''
+        }
+    } else {
+        localStorage.setItem('theme', 'light')
+        is_dark = false
+    }
+    // window.addEventListener('scroll', this.handleScroll, true)
+    // if(window.screen.availWidth > 767) document.body.addEventListener('touchstart',function(){})
+    if(document.body.clientWidth > 767) document.body.addEventListener('touchstart',function(){})
+})
 </script>
 
 <style scoped lang="scss">

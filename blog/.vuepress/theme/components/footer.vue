@@ -6,19 +6,15 @@
     </footer>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
+import { computed } from 'vue'
 import { useThemeData } from '@vuepress/plugin-theme-data/client'
 import type { ThemeData } from '@vuepress/plugin-theme-data/client'
 
-
-export default {
-    computed: {
-        footerData() {
-            const themeData = useThemeData<ThemeData>()
-            return themeData.value.footer
-        }
-    }
-}
+const footerData = computed(() => {
+    const themeData = useThemeData<ThemeData>()
+    return themeData.value.footer
+})
 </script>
 
 <style scoped lang="scss">
