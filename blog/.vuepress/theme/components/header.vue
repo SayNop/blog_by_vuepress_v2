@@ -22,7 +22,7 @@
 </template>
 
 <script setup> 
-import {ref, onMounted} from 'vue'
+import {getCurrentInstance, ref, onMounted} from 'vue'
 
 import icon_sun from './icons/sun.vue'
 import icon_moon from './icons/moon.vue'
@@ -43,6 +43,10 @@ const handleDark = () => {
         localStorage.setItem('theme', 'light')
     }
 }
+
+const instance = getCurrentInstance();
+const emit = instance.emit;
+
 const show_Slide = () => {
     emit('slide_switch')
 }
