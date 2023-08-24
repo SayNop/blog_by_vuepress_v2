@@ -34,7 +34,7 @@ const show_slide = ref(false)
 // methods
 const handleDark = () => {
     is_dark.value = !is_dark.value
-    if(is_dark.value){
+    if( is_dark.value ){
         document.documentElement.className = 'dark'
         localStorage.setItem('theme', 'dark')
 
@@ -56,9 +56,12 @@ onMounted(() => {
     if( localStorage.getItem('theme') ) {
         if( localStorage.getItem('theme') == 'dark' ) {
             is_dark.value = true
-            document.documentElement.className = 'dark'
+            setTimeout(() => {
+                document.documentElement.className = 'dark'
+            }, 50);
+            // document.documentElement.className = 'dark'
         } else {
-            is_dark .value= false
+            is_dark.value = false
             document.documentElement.className = ''
         }
     } else {
