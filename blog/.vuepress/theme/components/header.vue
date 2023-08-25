@@ -11,7 +11,8 @@
                         </span>
                     </span>
                 </button>
-                <button class="switch mobile_list_btn" type="button" @click="show_Slide">
+                <!-- <button class="switch mobile_list_btn" type="button" @click="show_Slide"> -->
+                <button class="switch mobile_list_btn" type="button" @click="$emit('slide_switch')">
                     <span class="btn_top"></span>
                     <span class="btn_middle"></span>
                     <span class="btn_bottom"></span>
@@ -44,12 +45,13 @@ const handleDark = () => {
     }
 }
 
-const instance = getCurrentInstance();
-const emit = instance.emit;
+// const instance = getCurrentInstance();
+// const emit = instance.emit;
+const emit = defineEmits(['slide_switch'])
 
-const show_Slide = () => {
-    emit('slide_switch')
-}
+// const show_Slide = () => {
+//     emit('slide_switch')
+// }
 
 
 onMounted(() => {
@@ -59,6 +61,7 @@ onMounted(() => {
             setTimeout(() => {
                 document.documentElement.className = 'dark'
             }, 50);
+            // 加载顺序与vue2不同，通过延时使其正常赋值
             // document.documentElement.className = 'dark'
         } else {
             is_dark.value = false

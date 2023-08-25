@@ -4,7 +4,10 @@
         <div class="full_page">
             <home_bg />
             <div class="main">
-                <sidebar />
+                <div style="display: flex;">
+                    <sidebar />
+                    <div style="flex-grow: 1;" />
+                </div>
             </div>
             <footer_wrapper />
         </div>        
@@ -34,6 +37,8 @@ export default {
 //     padding-top: var(--header-heigth);
 // }
 .main {
-    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 91%;
 }
 </style>
