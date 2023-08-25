@@ -6,29 +6,21 @@
             <div class="main">
                 <div style="display: flex;">
                     <sidebar />
-                    <div style="flex-grow: 1;" />
+                    <div style="flex-grow: 1;">
+                        <footer_wrapper />
+                    </div>
                 </div>
             </div>
-            <footer_wrapper />
         </div>        
     </div>
 </template>
 
 
-<script>
+<script setup>
 import navbar_wrapper from '../components/header.vue'
 import home_bg from '../components/home_bg.vue'
 import footer_wrapper from '../components/footer.vue'
 import sidebar from '../components/sidebar.vue'
-
-export default {
-    components: {
-        navbar_wrapper,
-        home_bg,
-        footer_wrapper,
-        sidebar,
-    }
-}
 </script>
 
 
@@ -39,6 +31,7 @@ export default {
 .main {
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 1rem;
     width: 91%;
 }
 </style>
