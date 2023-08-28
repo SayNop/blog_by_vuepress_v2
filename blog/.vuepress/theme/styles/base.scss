@@ -17,3 +17,18 @@
     position: relative;
     // box-shadow: 0 0 10px var(--card-shadow);
 }
+
+
+.content_container {
+    flex-grow: 1;
+    margin-left: 1.5rem;
+    position: relative;
+}
+
+.card_tag {
+    position: absolute;
+    text-align: left;
+    width: 100%;
+    bottom: 0;
+    height: 25%;
+}

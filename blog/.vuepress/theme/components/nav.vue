@@ -1,8 +1,18 @@
 <template>
     <section class="article_sidebar">
         <ul>
-            <li :class="'level' + item.level" v-for="item in pageData.headers" :key="item.slug">
-                <a class="sidebar-link" :href="'#'+item.slug">{{ item.title }}</a>
+            <li class="level2" v-for="item2 in pageData.headers" :key="item2.slug">
+                <a class="sidebar-link" :href="'#'+item2.slug">{{ item2.title }}</a>
+                <ul v-if="item2.children">
+                    <li class="level3" v-for="item3 in item2.children" :key="item3.slug">
+                        <a class="sidebar-link" :href="'#'+item3.slug">{{ item3.title }}</a>
+                        <ul v-if="item3.children">
+                            <li class="level4" v-for="item4 in item3.children" :key="item4.slug">
+                                <a class="sidebar-link" :href="'#'+item4.slug">{{ item4.title }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </li>
         </ul>
     </section>
@@ -25,6 +35,7 @@ const pageData = usePageData();
     ul {
         padding: 0;
         margin: 0;
+        list-style-type: none;
         li {
             line-height: 1.7;
             padding-bottom: 2px;
