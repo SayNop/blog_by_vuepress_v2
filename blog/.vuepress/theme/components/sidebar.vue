@@ -7,17 +7,33 @@
         <div class="sidebar_bottom card_border">
             <div class="avatar" style="background-image:url(/assets/imgs/avatar.jpg);"></div>
             <div class="author">Leopold</div>
+            <div class="summary">
+                <div><p>文章</p></div><div><p>分类</p></div><div><p>标签</p></div>
+                <div><p>0</p></div><div><p>0</p></div><div><p>0</p></div>
+            </div>
+            <div class="connection">
+                <div class="grid_icon"><github_icon class="icon"/></div><div><span>{{ themeData.connection_link.github }}</span></div>
+                <div class="grid_icon"><gitee_icon class="icon"/></div><div><span>{{ themeData.connection_link.gitee }}</span></div>
+                <div class="grid_icon"><mail_icon class="icon"/></div><div><span>{{ themeData.connection_link.mail }}</span></div>
+            </div>
         </div>
     </div>
 </template>
 
 
-<script setup>
+<script setup lang="ts">
 import { usePageData } from "@vuepress/client";
+import { useThemeData } from '@vuepress/plugin-theme-data/client'
+import type { ThemeData } from '@vuepress/plugin-theme-data/client'
 
 import nav_wrapper from './nav.vue'
+import github_icon from './icons/github.vue'
+import gitee_icon from './icons/gitee.vue'
+import mail_icon from './icons/mail.vue'
 
-const pageData = usePageData();
+const pageData = usePageData()
+
+const themeData = useThemeData<ThemeData>()
 </script>
 
 
@@ -59,5 +75,38 @@ const pageData = usePageData();
     font-weight: 700;
     font-size: 1.25rem;
     margin-top: 1rem;
+}
+
+.summary {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    margin-top: 1rem;
+    
+    div > p:hover {
+        cursor: pointer;
+        color: var(--theme-color);
+    }
+}
+
+.connection {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+    .grid_icon {
+        text-align: center;
+    }
+    div > span {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        &:hover {
+            cursor: pointer;
+            background-color: var(--tag-color);
+            border-radius: 5px;
+        }
+    }
 }
 </style>
