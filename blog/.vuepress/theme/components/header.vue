@@ -71,8 +71,6 @@ onMounted(() => {
         localStorage.setItem('theme', 'light')
         is_dark = false
     }
-    // window.addEventListener('scroll', this.handleScroll, true)
-    // if(window.screen.availWidth > 767) document.body.addEventListener('touchstart',function(){})
     if(document.body.clientWidth > 767) document.body.addEventListener('touchstart',function(){})
 })
 </script>
@@ -83,6 +81,8 @@ onMounted(() => {
     padding: 1rem 9%;
     z-index: var(--header-z-index);
     background: var(--header-color);
+    // background: var(--c-bg);
+    backdrop-filter: saturate(50%) blur(8px);
     transition-property: opacity;
     transition-timing-function: cubic-bezier(.4,0,.2,1);
     transition-duration: .15s;

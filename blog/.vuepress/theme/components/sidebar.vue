@@ -1,7 +1,7 @@
 <template>
     <div class="folding">
-        <div class="sidebar_top card_border" :style="pageData.frontmatter.layout=='detail'?'min-height:1rem':''">
-            <div class="tags_brand">{{ pageData.frontmatter.layout == 'detail'?'本文大纲':'文章标签' }}</div>
+        <div class="sidebar_top card_border" :style="frontmatter.layout=='detail'?'min-height:1rem':''">
+            <div class="tags_brand">{{ frontmatter.layout == 'detail'?'本文大纲':'文章标签' }}</div>
             <nav_wrapper />
         </div>
         <div class="sidebar_bottom card_border">
@@ -22,7 +22,7 @@
 
 
 <script setup lang="ts">
-import { usePageData } from "@vuepress/client";
+import { usePageFrontmatter } from "@vuepress/client";
 import { useThemeData } from '@vuepress/plugin-theme-data/client'
 import type { ThemeData } from '@vuepress/plugin-theme-data/client'
 
@@ -31,7 +31,7 @@ import github_icon from './icons/github.vue'
 import gitee_icon from './icons/gitee.vue'
 import mail_icon from './icons/mail.vue'
 
-const pageData = usePageData()
+const frontmatter = usePageFrontmatter()
 
 const themeData = useThemeData<ThemeData>()
 </script>

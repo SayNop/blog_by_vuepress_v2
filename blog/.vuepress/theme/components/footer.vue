@@ -11,8 +11,12 @@ import { computed } from 'vue'
 import { useThemeData } from '@vuepress/plugin-theme-data/client'
 import type { ThemeData } from '@vuepress/plugin-theme-data/client'
 
+type FooterData = ThemeData<{
+    footer: any
+}>
+
 const footerData = computed(() => {
-    const themeData = useThemeData<ThemeData>()
+    const themeData = useThemeData<FooterData>()
     return themeData.value.footer
 })
 </script>
