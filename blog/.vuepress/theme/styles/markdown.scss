@@ -1,36 +1,18 @@
+div[class*=language-].line-numbers-mode .line-numbers {
+    padding-top: 1.5rem;
+    line-height: 1.5;
+}
+
+div[class*=language-].line-numbers-mode .line-numbers .line-number {
+    height: 1.5em;
+}
+
 div[class*=language-] {
-    margin: 1rem -1.5rem;
+    margin-bottom: 1rem;
     border: 2px solid transparent;
-    pre {
-        position: relative;
-        z-index: 1;
-        margin: 0;
-        padding: 16px 0;
-        background: transparent;
-        overflow-x: auto;
-    }
-    
     code {
-        display: block;
-        padding: 0 24px;
-        width: -moz-fit-content;
-        width: fit-content;
-        line-height: 1.7;
-        font-size: .875em;
-        color: hsla(0,0%,100%,.87);
         transition: color .5s;
-        background-color: inherit;
-        width: fit-content;
-        text-align: left;
-        white-space: pre;
-        word-spacing: normal;
-        word-break: normal;
-        word-wrap: normal;
-        -moz-tab-size: 4;
-        -o-tab-size: 4;
-        tab-size: 4;
-        -webkit-hyphens: none;
-        hyphens: none;
+        background-color: transparent;
     }
 }
 

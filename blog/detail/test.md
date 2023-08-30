@@ -138,9 +138,6 @@ export default defineClientConfig({
         }),
       ],
     }
-    
-    
-    
     ```
 
   - 在vue组件中通过插件配合`computed`进行读取
