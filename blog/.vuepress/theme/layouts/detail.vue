@@ -5,8 +5,8 @@
             <home_bg />
             <div class="main">
                 <div style="display: flex;">
-                    <div class="sider_keeper" v-if="!is_mobile && is_nav" />
-                    <sidebar :class="is_mobile ? (show_sidebar ? 'show_info' : 'hidden_info') : (is_nav ? 'article_nav' : '') "/>
+                    <!-- <div class="sider_keeper" v-if="!is_mobile && is_nav" /> -->
+                    <div class="sider_keeper"><sidebar :class="is_mobile ? (show_sidebar ? 'show_info' : 'hidden_info') : (is_nav ? 'article_nav' : '') "/></div>
                     <div class="content_container">
                         <div class="card_border article_container">
                             <div class="frontmatter_info">
@@ -35,6 +35,8 @@
 
 
 <script setup>
+import '../styles/markdown.scss'
+
 import header_wrapper from '../components/header.vue'
 import home_bg from '../components/home_bg.vue'
 import footer_wrapper from '../components/footer.vue'
@@ -59,7 +61,8 @@ const handleScroll = () => {
         || document.documentElement.scrollTop
         || document.body.scrollTop
     header_opacity.value = scrollTop / 100
-    if(frontmatter.value.layout == 'detail' && header_opacity.value > 7.3)
+    // document.documentElement.clientHeight * 0.8(80vh) - header and margin = > document.body.clientHeight * 0.000888888888
+    if(frontmatter.value.layout == 'detail' && scrollTop > document.documentElement.clientHeight * 0.8 - 115)
         is_nav.value = true
     else
         is_nav.value = false

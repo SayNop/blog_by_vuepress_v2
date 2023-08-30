@@ -39,7 +39,7 @@ tags:
 
 编写404的布局文件，在`.vuepress/client.ts`注册为`NotFound`即可生效
 
-```tsx
+```tsx macos
 import { defineClientConfig } from '@vuepress/client'
 
 import NotFound from './theme/layouts/404.vue'
