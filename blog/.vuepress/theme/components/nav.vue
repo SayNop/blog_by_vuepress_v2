@@ -20,17 +20,51 @@
 
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import { usePageData } from "@vuepress/client";
 
-const pageData = usePageData();
+const pageData = usePageData()
+
+const target = ref('')
+
+const titles = document.getElementsByClassName('header-anchor')
+
+const links = document.getElementsByClassName('sidebar-link')
+
+const scroll_acitve = () => {
+    let viewPortHeight = window.innerHeight || documentElement.clientHeight
+    for (let i = 0; i < titles.length; i++) {
+        let { 
+            top,
+            left, 
+            bottom, 
+            right
+        } = titles[i].getBoundingClientRect()
+        if (top >=0 && bottom <= viewPortHeight) {
+            target.value = titles[i].href
+            break
+        }
+    }
+
+    if (target.value) {
+        for (var link of links) {
+            if (link.href == target.value)
+                link.classList.add('active')
+            else
+                link.classList.remove('active')
+        }
+    }
+}
+
+onMounted(() => {
+    window.addEventListener('scroll', scroll_acitve, true)
+})
 </script>
 
 
 <style scoped lang="scss">
 .article_sidebar {
     overflow: auto;
-    // max-height 20rem
-    // max-height calc(100vh - 487px)
     max-height: calc(100vh - 30rem);
     ul {
         padding: 0;
@@ -41,7 +75,8 @@ const pageData = usePageData();
             padding-bottom: 2px;
         }
         .active {
-            font-weight: 600;
+            font-weight: var(--active-font);
+            color: var(--theme-color);
         }
         .level2 {
             font-size: 0.9rem;
@@ -56,11 +91,10 @@ const pageData = usePageData();
             padding-left: 30px;
         }
         a {
-            color: var(--font-color);
+            color: var(--c-text);
             text-decoration: inherit;
             &:hover, &:active {
-                font-weight: 600;
-                // text-decoration-line underline
+                font-weight: var(--active-font);
             }
         }
     }

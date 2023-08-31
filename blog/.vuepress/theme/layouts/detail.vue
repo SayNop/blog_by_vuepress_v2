@@ -5,8 +5,9 @@
             <home_bg />
             <div class="main">
                 <div style="display: flex;">
-                    <!-- <div class="sider_keeper" v-if="!is_mobile && is_nav" /> -->
-                    <div class="sider_keeper"><sidebar :class="is_mobile ? (show_sidebar ? 'show_info' : 'hidden_info') : (is_nav ? 'article_nav' : '') "/></div>
+                    <div class="sider_keeper">
+                        <sidebar :class="is_mobile ? (show_sidebar ? 'show_info' : 'hidden_info') : (is_nav ? 'article_nav' : '') "/>
+                    </div>
                     <div class="content_container">
                         <div class="card_border article_container">
                             <div class="frontmatter_info">
@@ -69,6 +70,7 @@ const handleScroll = () => {
 }
 
 onMounted(() => {
+    document.documentElement.setAttribute('style', 'overflow: scroll;scroll-behavior: smooth;')
     if(document.body.clientWidth > 767) {
             // 滚动触发头部与文章页导航
         window.addEventListener('scroll', handleScroll)
@@ -97,7 +99,7 @@ onMounted(() => {
 .frontmatter_info {
     padding: 1rem;
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     border-bottom: 1px solid var(--c-text-quote);
 }
 
