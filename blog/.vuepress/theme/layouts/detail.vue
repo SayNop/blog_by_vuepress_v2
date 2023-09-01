@@ -1,12 +1,12 @@
 <template>
     <div>
-        <header_wrapper :style="{opacity: header_opacity}"/>
+        <header_wrapper :style="{opacity: header_opacity}" @slide_switch="showSlide"/>
         <div class="full_page">
             <home_bg />
             <div class="main">
                 <div style="display: flex;">
-                    <div class="sider_keeper">
-                        <sidebar :class="is_mobile ? (show_sidebar ? 'show_info' : 'hidden_info') : (is_nav ? 'article_nav' : '') "/>
+                    <div class="sider_keeper" :class="is_mobile ? (show_sidebar ? 'show_info' : 'hidden_info') : ''">
+                        <sidebar :class="is_mobile ? '' : (is_nav ? 'article_nav' : '') "/>
                     </div>
                     <div class="content_container">
                         <div class="card_border article_container">
@@ -63,10 +63,14 @@ const handleScroll = () => {
         || document.body.scrollTop
     header_opacity.value = scrollTop / 100
     // document.documentElement.clientHeight * 0.8(80vh) - header and margin = > document.body.clientHeight * 0.000888888888
-    if(frontmatter.value.layout == 'detail' && scrollTop > document.documentElement.clientHeight * 0.8 - 115)
+    if(scrollTop > document.documentElement.clientHeight * 0.8 - 115)
         is_nav.value = true
     else
         is_nav.value = false
+}
+
+const showSlide = () => {
+    show_sidebar.value = !show_sidebar.value
 }
 
 onMounted(() => {
@@ -116,10 +120,6 @@ onMounted(() => {
     position: inherit;
     display: flex;
     align-items: center;
-}
-
-.sider_keeper {
-    width: var(--sidebar-width);
 }
 
 .article_nav {

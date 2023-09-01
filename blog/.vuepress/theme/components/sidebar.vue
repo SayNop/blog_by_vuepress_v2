@@ -109,4 +109,16 @@ const themeData = useThemeData<ThemeData>()
         }
     }
 }
+
+@media(max-width: 767px) {
+    .folding {
+        width: 100%;
+    }
+    .sidebar_top {
+        min-height: auto;
+    }
+    .connection {
+        padding-left: 2rem;
+    }
+}
 </style>

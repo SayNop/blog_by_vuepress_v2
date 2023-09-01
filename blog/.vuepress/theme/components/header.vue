@@ -11,7 +11,6 @@
                         </span>
                     </span>
                 </button>
-                <!-- <button class="switch mobile_list_btn" type="button" @click="show_Slide"> -->
                 <button class="switch mobile_list_btn" type="button" @click="$emit('slide_switch')">
                     <span class="btn_top"></span>
                     <span class="btn_middle"></span>
@@ -30,7 +29,6 @@ import icon_moon from './icons/moon.vue'
 
 // data
 const is_dark = ref(false)
-const show_slide = ref(false)
 
 // methods
 const handleDark = () => {
@@ -44,14 +42,6 @@ const handleDark = () => {
         localStorage.setItem('theme', 'light')
     }
 }
-
-// const instance = getCurrentInstance();
-// const emit = instance.emit;
-const emit = defineEmits(['slide_switch'])
-
-// const show_Slide = () => {
-//     emit('slide_switch')
-// }
 
 
 onMounted(() => {

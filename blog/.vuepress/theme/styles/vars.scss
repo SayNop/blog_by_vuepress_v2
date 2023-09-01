@@ -12,10 +12,12 @@
     --siderbar-width: 16rem;
     --tag-color: var(--c-bg-light);
     --active-font: 700;
+    --card-shadow: rgba(0,0,0,.2);
     --brand-color: #2c3e50;
 }
 
 .dark {
     --header-color: #000000b3;
+    --card-shadow: rgba(255,255,255,.2);
     --brand-color: hsla(0,0%,100%,0.871);
 }
