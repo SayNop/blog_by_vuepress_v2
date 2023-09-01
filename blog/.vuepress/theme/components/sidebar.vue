@@ -50,7 +50,7 @@ const themeData = useThemeData<ThemeData>()
     padding: 1.2rem;
     background-color: var(--theme-color);
     font-weight: 900;
-    color: var(--c-text);
+    color: var(--brand-color);
 }
 
 .sidebar_bottom {

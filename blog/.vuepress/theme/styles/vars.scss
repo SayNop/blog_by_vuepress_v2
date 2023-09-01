@@ -12,8 +12,10 @@
     --siderbar-width: 16rem;
     --tag-color: var(--c-bg-light);
     --active-font: 700;
+    --brand-color: #2c3e50;
 }
 
 .dark {
     --header-color: #000000b3;
+    --brand-color: hsla(0,0%,100%,0.871);
 }

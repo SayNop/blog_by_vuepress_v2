@@ -39,7 +39,7 @@ tags:
 
 编写404的布局文件，在`.vuepress/client.ts`注册为`NotFound`即可生效
 
-```tsx macos
+```ts macos
 import { defineClientConfig } from '@vuepress/client'
 
 import NotFound from './theme/layouts/404.vue'
@@ -52,9 +52,6 @@ export default defineClientConfig({
   },
 })
 ```
-
-
-
  
 
 ## 主题配置变量存储的变化
@@ -109,7 +106,7 @@ export default defineClientConfig({
 
   - 根据[官方文档](https://v2.vuepress.vuejs.org/zh/guide/migration.html#%E7%BB%99%E4%B8%BB%E9%A2%98%E4%BD%9C%E8%80%85)，`$themeConfig` 已经从用户配置和站点数据中移除。现在需要使用 [@vuepress/plugin-theme-data](https://v2.vuepress.vuejs.org/zh/reference/plugin/theme-data.html) 插件进行配置
 
-    ```tsx
+    ```ts
     // vuepress v2
     // .vuepress/config.ts
     import { themeDataPlugin } from '@vuepress/plugin-theme-data'
@@ -250,7 +247,7 @@ vue3常使用`<script setup>`语法糖进行编写
 
     - vue3
 
-    ```js
+    ```ts
     import {getCurrentInstance, ref, onMounted} from 'vue'
 
     // 组件导入后无需声明
@@ -317,8 +314,44 @@ vue3常使用`<script setup>`语法糖进行编写
     ```
 
     - vue3
-    ```js
+    ```ts
     const props = defineProps({
         datas: String  // 声明props变量类型
     })
     ```
+
+## 计算当前所处章节
+通过获取当前视窗内的标题与标题列表比较，将标题一致的设置为`active`状态<br>
+
+其中，通过遍历所有标题并使用`dom.getBoundingClientRect()`来判断标题是否在视窗内
+
+```ts
+const titles = document.getElementsByClassName('header-anchor')
+
+const links = document.getElementsByClassName('sidebar-link')
+
+const scroll_acitve = () => {
+    let viewPortHeight = window.innerHeight || documentElement.clientHeight
+    for (let i = 0; i < titles.length; i++) {
+        let { 
+            top,
+            left, 
+            bottom, 
+            right
+        } = titles[i].getBoundingClientRect()
+        if (top >=100 && bottom <= viewPortHeight) {
+            target.value = titles[i].href
+            break
+        }
+    }
+
+    if (target.value) {
+        for (var link of links) {
+            if (link.href == target.value)
+                link.classList.add('active')
+            else
+                link.classList.remove('active')
+        }
+    }
+}
+```

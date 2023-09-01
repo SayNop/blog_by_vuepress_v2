@@ -1,5 +1,6 @@
 import { defineClientConfig } from '@vuepress/client'
 import { usePageData } from "@vuepress/client";
+import { icon_back_to_top } from "@vuepress/plugin-back-to-top/lib/client/styles/back-to-top.svg"
 
 import './theme/styles/index.scss'
 import './theme/styles/base.scss'
