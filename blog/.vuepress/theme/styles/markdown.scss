@@ -25,3 +25,10 @@ div[class*=language-]:hover {
         opacity: 1;
     }
 }
+
+// copy button
+div[class*=language-] > button.copy-code-button:not(.fancy) .copy-icon {
+    position: absolute;
+    top: .65rem;
+    left: .65rem;
+}
