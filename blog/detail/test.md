@@ -3,7 +3,8 @@ layout: detail
 title: vuepress v1迁移到v2
 date: 2023-08-08
 discription: '测试md渲染'
-category: 'test'
+category: 
+    - test
 tags:
     - test
 ---
