@@ -1,12 +1,12 @@
 <template>
     <div>
-        <header_wrapper :style="{opacity: header_opacity}" @slide_switch="showSlide"/>
+        <header_wrapper :style="{opacity: header_opacity}" @slide_switch="showSlide" />
         <div class="full_page">
             <home_bg />
             <div class="main">
                 <div style="display: flex;">
                     <div class="sider_keeper" :class="is_mobile ? (show_sidebar ? 'show_info' : 'hidden_info') : ''">
-                        <sidebar :class="is_mobile ? '' : (is_nav ? 'article_nav' : '') "/>
+                        <sidebar :class="is_mobile ? '' : (is_nav ? 'article_nav' : '')" />
                     </div>
                     <div class="content_container">
                         <div class="card_border article_container">
@@ -17,9 +17,9 @@
                                     <span class="icon">
                                         <category_icon />
                                     </span>
-                                    <category_lable :datas="frontmatter.category"/>
+                                    <category_lable :datas="frontmatter.category[0]" />
                                     <span class="icon" style="margin-right: 5px">
-                                        <tag_icon/>
+                                        <tag_icon />
                                     </span>
                                     <tag_lable :tag_name="tag"  v-for="tag in frontmatter.tags" :key="tag" />
                                 </div>
@@ -88,18 +88,6 @@ onMounted(() => {
 
 
 <style scoped lang="scss">
-.main {
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 1rem;
-    width: 91%;
-}
-
-.article_container {
-    padding: 1rem;
-    min-height: inherit;
-}
-
 .frontmatter_info {
     padding: 1rem;
     text-align: center;

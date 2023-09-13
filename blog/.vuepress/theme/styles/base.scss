@@ -1,5 +1,4 @@
 // global style
-
 .icon {
     position: relative;
     width: 18px;
@@ -23,10 +22,22 @@
     margin-right: 1.5rem;
 }
 
+.main {
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1rem;
+    width: 91%;
+}
+
 .content_container {
     flex-grow: 1;
     position: relative;
     width: 50%;
+}
+
+.article_container {
+    padding: 1rem;
+    min-height: inherit;
 }
 
 .card_tag {

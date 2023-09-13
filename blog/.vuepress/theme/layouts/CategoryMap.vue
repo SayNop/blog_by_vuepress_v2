@@ -1,13 +1,15 @@
 <template>
-    <div>
-        {{ categoryMap }}
-    </div>
+    <Base>
+        <div class="article_container card_border">
+            {{ categoryMap }}
+        </div>
+    </Base>
 </template>
 
-<script setup lang="ts">
-import { RouterLink } from "vue-router"
+<script setup>
+import Base from './Base.vue'
+
 import { useBlogCategory } from "vuepress-plugin-blog2/client"
 
 const categoryMap = useBlogCategory("category")
-console.log(categoryMap.value)
 </script>

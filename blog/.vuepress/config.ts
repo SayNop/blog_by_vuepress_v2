@@ -44,7 +44,7 @@ export default {
                 title,
                 date: frontmatter.date || null,
                 discription: frontmatter.discription || '',
-                category: frontmatter["category"] || '',
+                category: frontmatter["category"] || [],
                 tags: frontmatter["tags"] || [],
             }),
             // 单文章多属性分类 采集器
@@ -64,13 +64,27 @@ export default {
                 {
                     key: "tag",
                     path: '/tags/',
-                    getter: ({ frontmatter }) => <string[]>frontmatter.tag || [],
+                    getter: ({ frontmatter }) => <string[]>frontmatter.tags || [],
                     layout: "TagMap",
                     frontmatter: () => ({ title: "Tags" }),
                     itemLayout: "Tag",
                     itemFrontmatter: (name) => ({
                         title: `Tag ${name}`,
                     }),
+                },
+            ],
+            type: [
+                {
+                    key: "timeline",
+                    // 有时间的md文档
+                    filter: (page) => page.frontmatter.date instanceof Date,
+                    // sort pages with time
+                    sorter: (pageA, pageB) =>
+                        new Date(pageB.frontmatter.date as Date).getTime() -
+                        new Date(pageA.frontmatter.date as Date).getTime(),
+                    path: "/",
+                    layout: "Timeline",
+                    frontmatter: () => ({ title: "Index | Leopold's blog" }),
                 },
             ],
         })

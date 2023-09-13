@@ -2,14 +2,17 @@
     <div class="folding">
         <div class="sidebar_top card_border" :style="frontmatter.layout=='detail'?'min-height:1rem':''">
             <div class="tags_brand">{{ frontmatter.layout == 'detail'?'本文大纲':'文章标签' }}</div>
-            <nav_wrapper />
+            <nav_wrapper  v-if="frontmatter.layout == 'detail'" />
+            <div class="tags" v-else>
+                <tag_lable :tag_name="name" v-for="(val, name, index) in tagMap.map" :key="index" />
+            </div>
         </div>
         <div class="sidebar_bottom card_border">
             <div class="avatar" style="background-image:url(/assets/imgs/avatar.jpg);"></div>
             <div class="author">Leopold</div>
             <div class="summary">
                 <div><p>文章</p></div><div><p>分类</p></div><div><p>标签</p></div>
-                <div><p>0</p></div><div><p>0</p></div><div><p>0</p></div>
+                <div><p>{{ timelines.items.length }}</p></div><div><p>{{ Object.keys(categoryMap.map).length }}</p></div><div><p>{{ Object.keys(tagMap.map).length }}</p></div>
             </div>
             <div class="connection">
                 <div class="grid_icon"><github_icon class="icon"/></div><div><span>{{ themeData.connection_link.github }}</span></div>
@@ -22,16 +25,22 @@
 
 
 <script setup lang="ts">
-import { usePageFrontmatter } from "@vuepress/client";
+import { usePageFrontmatter } from "@vuepress/client"
+import { useBlogType, useBlogCategory  } from "vuepress-plugin-blog2/client"
 import { useThemeData } from '@vuepress/plugin-theme-data/client'
 import type { ThemeData } from '@vuepress/plugin-theme-data/client'
 
 import nav_wrapper from './nav.vue'
+import tag_lable from './tag_lable.vue'
 import github_icon from './icons/github.vue'
 import gitee_icon from './icons/gitee.vue'
 import mail_icon from './icons/mail.vue'
 
 const frontmatter = usePageFrontmatter()
+
+const timelines = useBlogType("timeline")
+const categoryMap = useBlogCategory("category")
+const tagMap = useBlogCategory("tag")
 
 const themeData = useThemeData<ThemeData>()
 </script>
@@ -51,6 +60,13 @@ const themeData = useThemeData<ThemeData>()
     background-color: var(--theme-color);
     font-weight: 900;
     color: var(--brand-color);
+}
+
+.tags {
+    padding: 15px;
+    span {
+        margin-bottom: 10px;
+    }
 }
 
 .sidebar_bottom {
