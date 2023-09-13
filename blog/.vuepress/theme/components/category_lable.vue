@@ -1,6 +1,6 @@
 <template>
     <!-- 使用冒泡stop，阻止父组件的跳转覆盖子组件 -->
-    <span class="article_category" @click.stop="go_to_category_list(datas)">{{ datas }}</span>
+    <span class="article_category" @click.stop="$router.push('/category/'+datas)">{{ datas }}</span>
 </template>
 
 
@@ -8,10 +8,6 @@
 const props = defineProps({
     datas: String
 })
-
-const go_to_category_list = (path) => {
-    this.$router.push('/categories/' + path)
-}
 </script>
 
 <style scoped lang="scss">
