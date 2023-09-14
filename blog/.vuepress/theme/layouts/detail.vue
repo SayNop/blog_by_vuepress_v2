@@ -11,17 +11,17 @@
                     <div class="content_container">
                         <div class="card_border article_container">
                             <div class="frontmatter_info">
-                                <h1>{{ frontmatter.title }}</h1>
-                                <div>{{  frontmatter.date.slice(0,10) }}</div>
+                                <h1>{{ $frontmatter.title }}</h1>
+                                <div>{{  $frontmatter.date.slice(0,10) }}</div>
                                 <div class="card_tag frontmatter_tags">
                                     <span class="icon">
                                         <category_icon />
                                     </span>
-                                    <category_lable :datas="frontmatter.category[0]" />
+                                    <category_lable :datas="$frontmatter.category[0]" />
                                     <span class="icon" style="margin-right: 5px">
                                         <tag_icon />
                                     </span>
-                                    <tag_lable :tag_name="tag"  v-for="tag in frontmatter.tags" :key="tag" />
+                                    <tag_lable :tag_name="tag"  v-for="tag in $frontmatter.tags" :key="tag" />
                                 </div>
                             </div>
                             <Content />
@@ -48,14 +48,14 @@ import tag_icon from '../components/icons/tag.vue'
 import tag_lable from '../components/tag_lable.vue'
 
 import { onMounted, ref } from 'vue'
-import { usePageFrontmatter } from "@vuepress/client";
+// import { usePageFrontmatter } from "@vuepress/client";
 
 const header_opacity = ref(0)
 const is_mobile = ref(false)
 const is_nav = ref(false)
 const show_sidebar = ref(false)
 
-const frontmatter = usePageFrontmatter()
+// const frontmatter = usePageFrontmatter()
 
 const handleScroll = () => {
     const scrollTop = window.pageYOffset

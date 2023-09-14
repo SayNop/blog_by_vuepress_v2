@@ -53,12 +53,17 @@ export default {
                     key: "category",
                     path: "/categories/",
                     getter: ({ frontmatter }) => <string[]>frontmatter.category || [],
+                    // 按时间降序
+                    sorter: (pageA, pageB) =>
+                        new Date(pageB.frontmatter.date as Date).getTime() -
+                        new Date(pageA.frontmatter.date as Date).getTime(),
                     layout: "CategoryMap",
                     frontmatter: () => ({ title: "Categories" }),
                     itemPath: "/category/:name/",
                     itemLayout: "Category",
                     itemFrontmatter: (name) => ({ 
                         title: `Category ${name}`,
+                        current: name
                     }),
                 },
                 {
@@ -70,6 +75,7 @@ export default {
                     itemLayout: "Tag",
                     itemFrontmatter: (name) => ({
                         title: `Tag ${name}`,
+                        current: name
                     }),
                 },
             ],
@@ -78,7 +84,7 @@ export default {
                     key: "timeline",
                     // 有时间的md文档
                     filter: (page) => page.frontmatter.date instanceof Date,
-                    // sort pages with time
+                    // 按时间降序
                     sorter: (pageA, pageB) =>
                         new Date(pageB.frontmatter.date as Date).getTime() -
                         new Date(pageA.frontmatter.date as Date).getTime(),

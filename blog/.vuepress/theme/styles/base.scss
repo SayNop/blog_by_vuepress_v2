@@ -40,12 +40,29 @@
     min-height: inherit;
 }
 
+.category_tag_key {
+    min-height: 5vh;
+    margin-bottom: 1.5rem;
+    padding: 15px 0 15px 30px;
+}
+
+.category_tag_icon {
+    display: inline-block;
+    vertical-align: text-top;
+    margin-right: 10px;
+}
+
+.title_font {
+    font-weight: 900;
+    font-size: 1.25rem;
+}
+
 .card_tag {
     position: absolute;
     text-align: left;
     width: 100%;
     bottom: 0;
-    height: 25%;
+    height: 28%;
 }
 
 // 移动端适配
