@@ -1,5 +1,5 @@
 div[class*=language-].line-numbers-mode .line-numbers {
-    padding-top: 1.5rem;
+    padding-top: 1rem;
     line-height: 1.5;
 }
 
@@ -31,4 +31,15 @@ div[class*=language-] > button.copy-code-button:not(.fancy) .copy-icon {
     position: absolute;
     top: .65rem;
     left: .65rem;
+}
+
+div[class*=language-] pre, div[class*=language-] pre[class*=language-] {
+    margin: 0 0 0 var(--code-ln-wrapper-width);
+    code {
+        padding: 0;
+    }
+}
+
+div[class*=language-] .line-number:hover {
+    font-weight: 600;
 }

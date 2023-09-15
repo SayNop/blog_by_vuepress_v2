@@ -8,7 +8,6 @@
                     <sidebar class="sider_keeper" :class="is_mobile ? (show_sidebar ? 'show_info' : 'hidden_info') : ''"/>
                     <div class="content_container">
                         <slot></slot>
-                        <!-- 引用带插槽的组件必须大写 -->
                         <footer_wrapper />
                     </div>
                 </div>

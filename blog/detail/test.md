@@ -356,3 +356,89 @@ const scroll_acitve = () => {
     }
 }
 ```
+
+
+## 插槽的使用
+由于多个页面的布局类似，只有内容部分不一致。可将共用部分写为插槽文件，其余布局只需编写内容部分，共用部分通过插槽文件进行填充。
+```vue
+<!-- Base.vue -->
+<template>
+    <div>
+        <header_wrapper :style="{opacity: header_opacity}" @slide_switch="showSlide"/>
+        <div class="full_page">
+            <home_bg />
+            <div class="main">
+                <div style="display: flex;">
+                    <sidebar class="sider_keeper" :class="is_mobile ? (show_sidebar ? 'show_info' : 'hidden_info') : ''"/>
+                    <div class="content_container">
+                        <!-- 将不一致的部分声明为插槽 -->
+                        <slot></slot>
+                        <footer_wrapper />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import header_wrapper from '../components/header.vue'
+import home_bg from '../components/home_bg.vue'
+import sidebar from '../components/sidebar.vue'
+import footer_wrapper from '../components/footer.vue'
+
+import { onMounted, ref } from 'vue'
+
+const header_opacity = ref(0)
+const is_mobile = ref(false)
+const show_sidebar = ref(false)
+
+
+const handleScroll = () => {
+    const scrollTop = window.pageYOffset
+        || document.documentElement.scrollTop
+        || document.body.scrollTop
+    header_opacity.value = scrollTop / 100
+}
+
+const showSlide = () => {
+    show_sidebar.value = !show_sidebar.value
+}
+
+onMounted(() => {
+    if(document.body.clientWidth > 767) {
+            // 滚动触发头部与文章页导航
+        window.addEventListener('scroll', handleScroll)
+        document.body.addEventListener('touchstart',function(){})
+        is_mobile.value = false
+    } else {
+        is_mobile.value = true
+    }
+})
+</script>
+
+```
+
+其余布局引用插槽文件对共用部分进行填充。即引用插槽组件时，该组件内的内容会填充到引用处，而引用处包裹的内容会用来填充`<slot>`处<br>
+如下为分类详情页，返回指定分类下的全部笔记
+```vue
+<template>
+    <Base>
+        <div class="card_border category_tag_key">
+            <span class="icon category_tag_icon"><category_icon /></span>
+            <span class="title_font">{{ $frontmatter.current }}</span>
+        </div>
+        <articles :articles="categoryMap.currentItems" />
+    </Base>
+</template>
+
+<script setup>
+import Base from './Base.vue'  // 注意 插槽组件需要大写 
+import category_icon from '../components/icons/category.vue'
+import articles from '../components/articles.vue'
+
+import { useBlogCategory } from "vuepress-plugin-blog2/client"
+
+const categoryMap = useBlogCategory("category")
+</script>
+```

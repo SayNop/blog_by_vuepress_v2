@@ -1,6 +1,7 @@
 import { themeDataPlugin } from '@vuepress/plugin-theme-data'
+import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
 import { copyCodePlugin } from "vuepress-plugin-copy-code2"
-import { blogPlugin } from "vuepress-plugin-blog2";
+import { blogPlugin } from "vuepress-plugin-blog2"
 
 
 export default {
@@ -29,6 +30,8 @@ export default {
                     mail: 'fur999immer@gmail.com'
                 },
             }
+        }),
+        mediumZoomPlugin({
         }),
         copyCodePlugin({
             selector: [
