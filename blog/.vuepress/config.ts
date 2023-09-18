@@ -2,15 +2,19 @@ import { themeDataPlugin } from '@vuepress/plugin-theme-data'
 import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
 import { copyCodePlugin } from "vuepress-plugin-copy-code2"
 import { blogPlugin } from "vuepress-plugin-blog2"
+import { commentPlugin } from "vuepress-plugin-comment2";
 
 
 export default {
     head: [
         [
             'link', // 设置 favicon.ico，注意图片放在 public 文件夹下
-            { rel: 'icon', href: 'favicon.ico' }
+            { rel: 'icon', href: '/favicon.ico' }
         ]
     ],
+    markdown: {
+        lineNumbers: true
+    },
     plugins: [
         themeDataPlugin({
             themeData: {
@@ -38,6 +42,13 @@ export default {
                 '.content_container div[class*="language-"] pre',
             ],
             showInMobile: true
+        }),
+        commentPlugin({
+            provider: "Giscus",
+            repo: 'github.com/SayNop/SayNop.github.io',
+            repoId: "R_kgDOIlAnJQ",
+            category:"Announcements",
+            categoryId: "DIC_kwDOIlAnJc4CYVx8",
         }),
         blogPlugin({
             // 指定文章路径 不在detail内将返回false，不被统计

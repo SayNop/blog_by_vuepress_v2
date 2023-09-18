@@ -25,6 +25,7 @@
                                 </div>
                             </div>
                             <Content />
+                            <CommentService :darkmode="is_dark" />
                         </div>
                         <footer_wrapper />
                     </div>
@@ -47,13 +48,14 @@ import category_lable from '../components/category_lable.vue'
 import tag_icon from '../components/icons/tag.vue'
 import tag_lable from '../components/tag_lable.vue'
 
-import { onMounted, ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 // import { usePageFrontmatter } from "@vuepress/client";
 
 const header_opacity = ref(0)
 const is_mobile = ref(false)
 const is_nav = ref(false)
 const show_sidebar = ref(false)
+const is_dark = ref(false)
 
 // const frontmatter = usePageFrontmatter()
 
@@ -75,6 +77,12 @@ const showSlide = () => {
 
 onMounted(() => {
     document.documentElement.setAttribute('style', 'overflow: scroll;scroll-behavior: smooth;')
+    // 评论组件主题
+    is_dark.value = window.localStorage.getItem('theme') == 'dark' ? true : false
+    window.addEventListener("storage", function(){
+        is_dark.value = window.localStorage.getItem('theme') == 'dark' ? true : false
+    })
+    // header透明度
     if(document.body.clientWidth > 767) {
             // 滚动触发头部与文章页导航
         window.addEventListener('scroll', handleScroll)

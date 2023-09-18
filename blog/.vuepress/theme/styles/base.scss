@@ -1,8 +1,8 @@
 // global style
 .icon {
     position: relative;
-    width: 18px;
-    height: 18px;
+    width: 1.2rem;
+    height: 1.25rem;
     overflow: hidden;
     fill: var(--c-text);
 }
@@ -57,6 +57,84 @@
     font-size: 1.25rem;
 }
 
+.category_tag_name {
+    font-weight: 900;
+}
+
+.title_color {
+    color: var(--title-font-color);
+    background: var(--title-bg-color);
+}
+
+.category_tag_card {
+    min-height: inherit;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.category_tag_item_name {
+    padding: 0.375rem;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-bottom: 10px;
+    &:hover {
+        color: var(--theme-color);
+    }
+}
+
+.category_tag_item_count {
+    font-size: 0.75rem;
+    padding: 0.375rem;
+    display: inline-block;
+    cursor: pointer;
+    &:hover {
+        color: var(--theme-color);
+    }
+}
+
+.category_tag_item_top10 {
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: inherit;
+}
+
+.top10_article_title {
+    font-size: 0.9rem;
+    // display: inline-block;
+    margin-right: 1rem;
+    // 下方为过长内容显示...
+    width: 50%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: break-word;
+    overflow-x: hidden;
+    .article_hover {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-radius: 5px;
+        &:hover {
+            background-color: var(--tag-color);
+            cursor: pointer;
+        }
+    }
+}
+
+.top10_article_other_info {
+    width: 35%;
+    display: flex;
+    justify-content: space-between;   
+}
+
+.top10_article_date {
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-right: 1rem;
+}
+
 .card_tag {
     position: absolute;
     text-align: left;
@@ -88,5 +166,11 @@
         padding: 100px 20px 0;
         overflow: auto;
         background: hsla(0,0%,100%,.7);
+    }
+    .top10_article_other_info {
+        width: auto;
+    }
+    .top10_mobile_hidden {
+        display: none;
     }
 }

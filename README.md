@@ -16,3 +16,9 @@ v16.20.0
 
 ## package
 vuepress = "2.0.0"<br>
+
+vuepress-plugin-blog2<br>
+
+vuepress-plugin-copy-code2<br>
+
+vuepress-plugin-comment2<br>

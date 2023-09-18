@@ -6,7 +6,8 @@
   "license": "MIT",
   "dependencies": {
     "vuepress": "2.0.0-beta.67",
-    "vuepress-plugin-blog2": "^2.0.0-beta.237"
+    "vuepress-plugin-blog2": "^2.0.0-beta.237",
+    "vuepress-plugin-comment2": "^2.0.0-beta.237"
   },
   "scripts": {
     "blog:dev": "vuepress dev blog",

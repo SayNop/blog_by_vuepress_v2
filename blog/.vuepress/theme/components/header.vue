@@ -126,7 +126,7 @@ onMounted(() => {
     .mobile_list_btn {
         position: relative;
         display: block;
-        width: 36px;
+        width: 40px;
     
         span {
             position: absolute;

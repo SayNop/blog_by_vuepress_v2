@@ -2,7 +2,7 @@
     <div>
         <div v-for="item in articles" :key="item.key">
             <div class="article_card card_border" @click="$router.push(item.path)">
-                <div class="card_title_container">
+                <div class="card_title_container title_color">
                     <div class="article_title title_font">{{ item.info.title }}</div> 
                     <div class="article_time">{{ item.info.date.slice(0,10) }}</div>
                 </div>
@@ -33,12 +33,10 @@ const props = defineProps({
 }
 
 .card_title_container {
-    color: #fff;
     line-height: 1.75rem;
     letter-spacing: .025em;
     text-align: center;
     padding: 12px 24px;
-    background: var(--title-bg-color);
     position: absolute;
     height: 50%;
     width: 100%;
