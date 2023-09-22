@@ -65,7 +65,7 @@ onMounted(() => {
 <style scoped lang="scss">
 .article_sidebar {
     overflow: auto;
-    max-height: calc(100vh - 30rem);
+    max-height: calc(100vh - 34.5rem);
     ul {
         padding: 0;
         margin: 0;

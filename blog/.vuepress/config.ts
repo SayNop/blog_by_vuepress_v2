@@ -15,6 +15,9 @@ export default {
     markdown: {
         lineNumbers: true
     },
+    extendsMarkdown: (md) => {
+        console.log(md.renderer)
+    },
     plugins: [
         themeDataPlugin({
             themeData: {
@@ -45,7 +48,7 @@ export default {
         }),
         commentPlugin({
             provider: "Giscus",
-            repo: 'github.com/SayNop/SayNop.github.io',
+            repo: 'SayNop/SayNop.github.io',
             repoId: "R_kgDOIlAnJQ",
             category:"Announcements",
             categoryId: "DIC_kwDOIlAnJc4CYVx8",

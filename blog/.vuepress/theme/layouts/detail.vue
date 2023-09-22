@@ -65,7 +65,7 @@ const handleScroll = () => {
         || document.body.scrollTop
     header_opacity.value = scrollTop / 100
     // document.documentElement.clientHeight * 0.8(80vh) - header and margin = > document.body.clientHeight * 0.000888888888
-    if(scrollTop > document.documentElement.clientHeight * 0.8 - 115)
+    if(scrollTop > document.documentElement.clientHeight * 0.8 - 105)
         is_nav.value = true
     else
         is_nav.value = false
@@ -76,7 +76,7 @@ const showSlide = () => {
 }
 
 onMounted(() => {
-    document.documentElement.setAttribute('style', 'overflow: scroll;scroll-behavior: smooth;')
+    document.documentElement.setAttribute('style', 'overflow-y: scroll;scroll-behavior: smooth;')
     // 评论组件主题
     is_dark.value = window.localStorage.getItem('theme') == 'dark' ? true : false
     window.addEventListener("storage", function(){

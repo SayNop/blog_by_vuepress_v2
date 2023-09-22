@@ -110,7 +110,7 @@ const open_link = (link: String) => {window.open('http://'+link)}
     display: grid;
     grid-template-columns: repeat(2, auto);
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     text-align: left;
     font-size: 0.9rem;
     line-height: 1.3rem;
