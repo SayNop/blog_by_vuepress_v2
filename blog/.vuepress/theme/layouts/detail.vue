@@ -65,7 +65,7 @@ const handleScroll = () => {
         || document.body.scrollTop
     header_opacity.value = scrollTop / 100
     // document.documentElement.clientHeight * 0.8(80vh) - header and margin = > document.body.clientHeight * 0.000888888888
-    if(scrollTop > document.documentElement.clientHeight * 0.8 - 105)
+    if(scrollTop > document.documentElement.clientHeight * 0.8 - 115)  // 105
         is_nav.value = true
     else
         is_nav.value = false
