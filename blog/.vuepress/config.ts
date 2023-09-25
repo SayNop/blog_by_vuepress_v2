@@ -16,7 +16,19 @@ export default {
         lineNumbers: true
     },
     extendsMarkdown: (md) => {
-        console.log(md.renderer)
+        const origin_code_render = md.renderer.rules.fence
+        const update_markdown_theme = (code_render) => (tokens, idx, options, env, self) => {
+            const token = tokens[idx]
+            const info = token.info ? md.utils.unescapeAll(token.info).trim() : ""
+            const theme = info && info.split(' ').length > 1 ? info.split(' ')[1] : null
+            const res = code_render(tokens, idx, options, env, self)
+            if (theme) {
+                const new_res = '<div class="macos ' + res.slice(12,)
+                return new_res
+            }
+            return res
+        }
+        md.renderer.rules.fence = update_markdown_theme(origin_code_render)
     },
     plugins: [
         themeDataPlugin({
