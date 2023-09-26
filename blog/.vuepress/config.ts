@@ -64,6 +64,8 @@ export default {
             repoId: "R_kgDOIlAnJQ",
             category:"Announcements",
             categoryId: "DIC_kwDOIlAnJc4CYVx8",
+            lightTheme: "light_protanopia",
+            darkTheme: "dark_protanopia",
         }),
         blogPlugin({
             // 指定文章路径 不在detail内将返回false，不被统计

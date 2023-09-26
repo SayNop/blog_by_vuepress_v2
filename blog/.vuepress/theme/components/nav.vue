@@ -27,9 +27,9 @@ const pageData = usePageData()
 
 const target = ref('')
 
-const titles = document.getElementsByClassName('header-anchor')
-
-const links = document.getElementsByClassName('sidebar-link')
+// document对象 直接在声明变量时使用会发生异常 可在此处声明变量名后在mounted中通过document赋值
+const titles = ref()
+const links = ref()
 
 const scroll_acitve = () => {
     let viewPortHeight = window.innerHeight || documentElement.clientHeight
@@ -40,7 +40,7 @@ const scroll_acitve = () => {
             bottom, 
             right
         } = titles[i].getBoundingClientRect()
-        if (top >=0 && bottom <= viewPortHeight) {
+        if (top >= 0 && bottom <= viewPortHeight) {
             target.value = titles[i].href
             break
         }
@@ -58,6 +58,9 @@ const scroll_acitve = () => {
 
 onMounted(() => {
     window.addEventListener('scroll', scroll_acitve, true)
+    // 在函数中声明将在每次滚动时都进行获取
+    titles.value = document.getElementsByClassName('header-anchor')
+    links.value = document.getElementsByClassName('sidebar-link')
 })
 </script>
 

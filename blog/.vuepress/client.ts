@@ -24,4 +24,7 @@ export default defineClientConfig({
     Tag,
     TagMap,
   },
+  // enhance({ app, router, siteData }) {
+  //   // 如需导入三方组件库
+  // },
 })

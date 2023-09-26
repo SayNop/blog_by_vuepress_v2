@@ -22,7 +22,7 @@
 </template>
 
 <script setup> 
-import {getCurrentInstance, ref, onMounted} from 'vue'
+import {ref, onMounted} from 'vue'
 
 import icon_sun from './icons/sun.vue'
 import icon_moon from './icons/moon.vue'
