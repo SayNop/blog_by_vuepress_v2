@@ -6,7 +6,7 @@ import './theme/styles/vars.scss'
 
 import Layout from './theme/layouts/Layout.vue'
 import NotFound from './theme/layouts/404.vue'
-import detail from './theme/layouts/detail.vue'
+import Detail from './theme/layouts/Detail.vue'
 import Category from './theme/layouts/Category.vue'
 import CategoryMap from './theme/layouts/CategoryMap.vue'
 import Tag from './theme/layouts/Tag.vue'
@@ -18,7 +18,7 @@ export default defineClientConfig({
   layouts: {
     Layout,  // 默认布局文件
     NotFound,  // 404时默认渲染组件名为NotFound的组件
-    detail,
+    Detail,
     Category,
     CategoryMap,
     Tag,

@@ -8,7 +8,7 @@
 import Base from './Base.vue'
 import articles from '../components/articles.vue'
 
-import { useRoute } from 'vue-router'
+// import { useRoute } from 'vue-router'
 import { useBlogType  } from "vuepress-plugin-blog2/client"
 
 const timelines = useBlogType("timeline")

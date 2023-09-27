@@ -1,8 +1,8 @@
 <template>
     <div class="folding">
-        <div class="sidebar_top card_border" :style="$frontmatter.layout=='detail'?'min-height:1rem':''">
-            <div class="tags_brand">{{ $frontmatter.layout == 'detail'?'本文大纲':'文章标签' }}</div>
-            <nav_wrapper  v-if="$frontmatter.layout == 'detail'" />
+        <div class="sidebar_top card_border" :style="$frontmatter.layout=='Detail'?'min-height:1rem':''">
+            <div class="tags_brand">{{ $frontmatter.layout == 'Detail'?'本文大纲':'文章标签' }}</div>
+            <nav_wrapper  v-if="$frontmatter.layout == 'Detail'" />
             <div class="tags" v-else>
                 <tag_lable :tag_name="name" v-for="(val, name, index) in tagMap.map" :key="index" />
             </div>

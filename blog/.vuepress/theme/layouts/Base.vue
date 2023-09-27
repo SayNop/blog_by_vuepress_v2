@@ -1,11 +1,11 @@
 <template>
     <div>
-        <header_wrapper :style="{opacity: header_opacity}" @slide_switch="showSlide"/>
+        <header_wrapper :style="{opacity: header_opacity}" @slide_switch="showSlide" />
         <home_bg />
         <div class="main">
             <div style="display: flex;">
                 <div class="sider_keeper" :class="is_mobile ? (show_sidebar ? 'show_info' : 'hidden_info') : ''">
-                    <sidebar />
+                    <sidebar :class="$frontmatter.layout == 'Detail' && is_nav ? 'article_nav' : '' " />
                 </div>
                 <div class="content_container">
                     <slot></slot>
@@ -27,6 +27,7 @@ import { onMounted, ref } from 'vue'
 const header_opacity = ref(0)
 const is_mobile = ref(false)
 const show_sidebar = ref(false)
+const is_nav = ref(false)
 
 
 const handleScroll = () => {
@@ -34,6 +35,11 @@ const handleScroll = () => {
         || document.documentElement.scrollTop
         || document.body.scrollTop
     header_opacity.value = scrollTop / 100
+    // document.documentElement.clientHeight * 0.8(80vh) - header and margin = > document.body.clientHeight * 0.000888888888
+    if(!is_mobile.value && scrollTop > document.documentElement.clientHeight * 0.8 - 115)  // 105
+        is_nav.value = true
+    else
+        is_nav.value = false
 }
 
 const showSlide = () => {
@@ -51,3 +57,11 @@ onMounted(() => {
     }
 })
 </script>
+
+<style scoped>
+.article_nav {
+    position: fixed;
+    top: 115px;
+    z-index: 9;
+}
+</style>
