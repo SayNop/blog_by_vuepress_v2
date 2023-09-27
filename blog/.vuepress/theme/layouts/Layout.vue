@@ -13,7 +13,7 @@ import { useBlogType  } from "vuepress-plugin-blog2/client"
 
 const timelines = useBlogType("timeline")
 
-const route = useRoute();
-console.log(route)
-console.log(route.query.page)
+// const route = useRoute();
+// console.log(route)
+// console.log(route.query.page)
 </script>

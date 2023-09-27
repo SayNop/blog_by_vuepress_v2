@@ -143,6 +143,24 @@
     height: 28%;
 }
 
+
+@media (max-width: 959px) {
+    .back-to-top {
+        display: inherit;
+    }
+}
+
+
+// 分类列表适配
+@media (max-width: 1000px) {
+    .top10_mobile_hidden {
+        display: none;
+    }
+    .top10_article_other_info {
+        width: auto;
+    }
+}
+
 // 移动端适配
 @media (max-width: 767px) {
     .show_info {
@@ -166,11 +184,5 @@
         padding: 100px 20px 0;
         overflow: auto;
         background: hsla(0,0%,100%,.7);
-    }
-    .top10_article_other_info {
-        width: auto;
-    }
-    .top10_mobile_hidden {
-        display: none;
-    }
+    } 
 }

@@ -14,7 +14,7 @@ body {
     font-size: 16px;
     font-weight: 400;
     color: var(--c-text);
-    background: url(/assets/imgs/bg06.jpg) no-repeat top / cover;
+    background: url(/assets/imgs/bg02.jpeg) no-repeat center / cover;
     background-attachment: fixed;
     direction: ltr;
     font-synthesis: none;
@@ -61,4 +61,9 @@ ul {
     &:hover::before {
         background-color: var(--theme-color);
     }
+}
+
+#nprogress .bar {
+    background: var(--theme-color);
+    height: 3px;
 }

@@ -97,7 +97,7 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .frontmatter_info {
-    padding: 1rem;
+    padding: var(--content-padding);
     text-align: center;
     margin-bottom: 2rem;
     border-bottom: 1px solid var(--c-text-quote);
@@ -122,5 +122,10 @@ onMounted(() => {
     position: fixed;
     top: 115px;
     z-index: 9;
+}
+
+.giscus-wrapper {
+    max-width: inherit;
+    padding: var(--content-padding);
 }
 </style>

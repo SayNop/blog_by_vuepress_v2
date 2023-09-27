@@ -2,10 +2,12 @@ import { themeDataPlugin } from '@vuepress/plugin-theme-data'
 import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
 import { copyCodePlugin } from "vuepress-plugin-copy-code2"
 import { blogPlugin } from "vuepress-plugin-blog2"
-import { commentPlugin } from "vuepress-plugin-comment2";
+import { commentPlugin } from "vuepress-plugin-comment2"
+import { seoPlugin } from "vuepress-plugin-seo2"
 
 
 export default {
+    lang: "zh-CN",
     head: [
         [
             'link', // 设置 favicon.ico，注意图片放在 public 文件夹下
@@ -124,6 +126,9 @@ export default {
                     frontmatter: () => ({ title: "Index | Leopold's blog" }),
                 },
             ],
-        })
+        }),
+        seoPlugin({
+            hostname: 'https://saynop.github.io/'
+        }),
     ],
 }
