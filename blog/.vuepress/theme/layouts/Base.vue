@@ -1,15 +1,15 @@
 <template>
     <div>
         <header_wrapper :style="{opacity: header_opacity}" @slide_switch="showSlide"/>
-        <div class="full_page">
-            <home_bg />
-            <div class="main">
-                <div style="display: flex;">
-                    <sidebar class="sider_keeper" :class="is_mobile ? (show_sidebar ? 'show_info' : 'hidden_info') : ''"/>
-                    <div class="content_container">
-                        <slot></slot>
-                        <footer_wrapper />
-                    </div>
+        <home_bg />
+        <div class="main">
+            <div style="display: flex;">
+                <div class="sider_keeper" :class="is_mobile ? (show_sidebar ? 'show_info' : 'hidden_info') : ''">
+                    <sidebar />
+                </div>
+                <div class="content_container">
+                    <slot></slot>
+                    <footer_wrapper />
                 </div>
             </div>
         </div>

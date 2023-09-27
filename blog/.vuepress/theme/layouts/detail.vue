@@ -1,37 +1,35 @@
 <template>
     <div>
         <header_wrapper :style="{opacity: header_opacity}" @slide_switch="showSlide" />
-        <div class="full_page">
-            <home_bg />
-            <div class="main">
-                <div style="display: flex;">
-                    <div class="sider_keeper" :class="is_mobile ? (show_sidebar ? 'show_info' : 'hidden_info') : ''">
-                        <sidebar :class="is_mobile ? '' : (is_nav ? 'article_nav' : '')" />
-                    </div>
-                    <div class="content_container">
-                        <div class="card_border article_container">
-                            <div class="frontmatter_info">
-                                <h1>{{ $frontmatter.title }}</h1>
-                                <div>{{  $frontmatter.date.slice(0,10) }}</div>
-                                <div class="card_tag frontmatter_tags">
-                                    <span class="icon">
-                                        <category_icon />
-                                    </span>
-                                    <category_lable :datas="$frontmatter.category[0]" />
-                                    <span class="icon" style="margin-right: 5px">
-                                        <tag_icon />
-                                    </span>
-                                    <tag_lable :tag_name="tag"  v-for="tag in $frontmatter.tags" :key="tag" />
-                                </div>
+        <home_bg />
+        <div class="main">
+            <div style="display: flex;">
+                <div class="sider_keeper" :class="is_mobile ? (show_sidebar ? 'show_info' : 'hidden_info') : ''">
+                    <sidebar :class="is_mobile ? '' : (is_nav ? 'article_nav' : '')" />
+                </div>
+                <div class="content_container">
+                    <div class="card_border article_container">
+                        <div class="frontmatter_info">
+                            <h1>{{ $frontmatter.title }}</h1>
+                            <div>{{  $frontmatter.date.slice(0,10) }}</div>
+                            <div class="card_tag frontmatter_tags">
+                                <span class="icon">
+                                    <category_icon />
+                                </span>
+                                <category_lable :datas="$frontmatter.category[0]" />
+                                <span class="icon" style="margin-right: 5px">
+                                    <tag_icon />
+                                </span>
+                                <tag_lable :tag_name="tag"  v-for="tag in $frontmatter.tags" :key="tag" />
                             </div>
-                            <Content />
-                            <CommentService :darkmode="is_dark" />
                         </div>
-                        <footer_wrapper />
+                        <Content />
+                        <CommentService :darkmode="is_dark" />
                     </div>
+                    <footer_wrapper />
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
 </template>
 

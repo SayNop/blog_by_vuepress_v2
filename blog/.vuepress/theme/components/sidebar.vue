@@ -15,9 +15,9 @@
                 <div><p @click="$router.push('/')">{{ timelines.items.length }}</p></div><div><p @click="$router.push('/categories/')">{{ Object.keys(categoryMap.map).length }}</p></div><div><p @click="$router.push('/tags/')">{{ Object.keys(tagMap.map).length }}</p></div>
             </div>
             <div class="connection">
-                <div class="grid_icon"><github_icon class="icon"/></div><div><span @click="open_link(themeData.connection_link.github)">{{ themeData.connection_link.github }}</span></div>
-                <div class="grid_icon"><gitee_icon class="icon"/></div><div><span @click="open_link(themeData.connection_link.gitee)">{{ themeData.connection_link.gitee }}</span></div>
-                <div class="grid_icon"><mail_icon class="icon"/></div><div><span @click="open_link(themeData.connection_link.mail)">{{ themeData.connection_link.mail }}</span></div>
+                <div class="grid_icon"><github_icon class="icon" /></div><div><span @click="open_link(themeData.connection_link.github)">{{ themeData.connection_link.github }}</span></div>
+                <div class="grid_icon"><gitee_icon class="icon" /></div><div><span @click="open_link(themeData.connection_link.gitee)">{{ themeData.connection_link.gitee }}</span></div>
+                <div class="grid_icon"><mail_icon class="icon" /></div><div><span @click="open_link(themeData.connection_link.mail)">{{ themeData.connection_link.mail }}</span></div>
             </div>
         </div>
     </div>
@@ -130,7 +130,9 @@ const open_link = (link: String) => {window.open('http://'+link)}
 
 @media(max-width: 767px) {
     .folding {
-        width: 100%;
+        width: 91%;
+        margin-left: auto;
+        margin-right: auto;
     }
     .sidebar_top {
         min-height: auto;
