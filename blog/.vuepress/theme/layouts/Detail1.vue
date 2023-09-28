@@ -16,7 +16,7 @@
                 </div>
             </div>
             <Content />
-            <CommentService :darkmode="is_dark" />
+            <CommentService :darkmode="comment_dark" />
         </div>
     </Base>
 </template>
@@ -31,17 +31,15 @@ import category_lable from '../components/category_lable.vue'
 import tag_icon from '../components/icons/tag.vue'
 import tag_lable from '../components/tag_lable.vue'
 
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
+import { useStatusStore } from '../utils/store'
+import { storeToRefs } from 'pinia'
 
-const is_dark = ref(false)
+const store = useStatusStore()
+const { comment_dark } = storeToRefs(store)
 
 onMounted(() => {
     document.documentElement.setAttribute('style', 'overflow-y: scroll;scroll-behavior: smooth;')
-    // 评论组件主题
-    is_dark.value = window.localStorage.getItem('theme') == 'dark' ? true : false
-    window.addEventListener("storage", function(){
-        is_dark.value = window.localStorage.getItem('theme') == 'dark' ? true : false
-    })
 })
 </script>
 

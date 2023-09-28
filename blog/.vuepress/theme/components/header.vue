@@ -11,7 +11,7 @@
                         </span>
                     </span>
                 </button>
-                <button class="switch mobile_list_btn" type="button" @click="$emit('slide_switch')">
+                <button class="switch mobile_list_btn" type="button" @click="store.change_sidebar()">
                     <span class="btn_top"></span>
                     <span class="btn_middle"></span>
                     <span class="btn_bottom"></span>
@@ -27,16 +27,20 @@ import {ref, onMounted} from 'vue'
 import icon_sun from './icons/sun.vue'
 import icon_moon from './icons/moon.vue'
 
+import { useStatusStore } from '../utils/store'
+
+const store = useStatusStore()
+
 // data
 const is_dark = ref(false)
 
 // methods
 const handleDark = () => {
     is_dark.value = !is_dark.value
+    store.change_comment_theme()
     if( is_dark.value ){
         document.documentElement.className = 'dark'
         localStorage.setItem('theme', 'dark')
-
     } else {
         document.documentElement.className = ''
         localStorage.setItem('theme', 'light')
@@ -48,6 +52,7 @@ onMounted(() => {
     if( localStorage.getItem('theme') ) {
         if( localStorage.getItem('theme') == 'dark' ) {
             is_dark.value = true
+            store.comment_dark = true
             setTimeout(() => {
                 document.documentElement.className = 'dark'
             }, 50);
@@ -55,13 +60,15 @@ onMounted(() => {
             // document.documentElement.className = 'dark'
         } else {
             is_dark.value = false
+            store.comment_dark = false
             document.documentElement.className = ''
         }
     } else {
         localStorage.setItem('theme', 'light')
-        is_dark = false
+        is_dark.value = false
+        store.comment_dark = false
     }
-    if(document.body.clientWidth > 767) document.body.addEventListener('touchstart',function(){})
+    // if(document.body.clientWidth > 767) document.body.addEventListener('touchstart',() => {})
 })
 </script>
 

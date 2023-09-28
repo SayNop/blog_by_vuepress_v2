@@ -1,4 +1,5 @@
 import { defineClientConfig } from '@vuepress/client'
+import { createPinia } from 'pinia'
 
 import './theme/styles/index.scss'
 import './theme/styles/base.scss'
@@ -6,7 +7,7 @@ import './theme/styles/vars.scss'
 
 import Layout from './theme/layouts/Layout.vue'
 import NotFound from './theme/layouts/404.vue'
-import Detail from './theme/layouts/Detail.vue'
+import Detail from './theme/layouts/Detail1.vue'
 import Category from './theme/layouts/Category.vue'
 import CategoryMap from './theme/layouts/CategoryMap.vue'
 import Tag from './theme/layouts/Tag.vue'
@@ -24,7 +25,9 @@ export default defineClientConfig({
     Tag,
     TagMap,
   },
-  // enhance({ app, router, siteData }) {
-  //   // 如需导入三方组件库
-  // },
+  enhance({ app, router, siteData }) {
+    // 如需导入三方组件库
+    const pinia = createPinia()
+    app.use(pinia)
+  },
 })
