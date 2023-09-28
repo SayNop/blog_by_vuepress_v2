@@ -16,7 +16,7 @@
                 </div>
             </div>
             <Content />
-            <CommentService :darkmode="comment_dark" />
+            <CommentService :darkmode="is_dark" />
         </div>
     </Base>
 </template>
@@ -36,7 +36,7 @@ import { useStatusStore } from '../utils/store'
 import { storeToRefs } from 'pinia'
 
 const store = useStatusStore()
-const { comment_dark } = storeToRefs(store)
+const { is_dark } = storeToRefs(store)
 
 onMounted(() => {
     document.documentElement.setAttribute('style', 'overflow-y: scroll;scroll-behavior: smooth;')

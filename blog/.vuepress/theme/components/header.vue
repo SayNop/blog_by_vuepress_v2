@@ -3,12 +3,18 @@
         <div class="header_container">
             <div><a class="header_title" href="/">Leopold's Blog</a></div>
             <div class="appearance">
-                <button class="switch" @click="handleDark">
-                    <span class="check">
-                        <span class="icon" style="display: block;">
-                            <icon_sun v-show="!is_dark" />
-                            <icon_moon v-show="is_dark" />
+                <button type="button" class="search switch">
+                    <span class="search_container">
+                        <icon_search class="icon" style="vertical-align: middle;" />
+                        <span class="search_placeholder">
+                            Search
                         </span>
+                    </span>
+                </button>
+                <button class="switch" @click="handleDark">
+                    <span class="icon" style="display: block;">
+                        <icon_sun v-show="!is_dark" />
+                        <icon_moon v-show="is_dark" />
                     </span>
                 </button>
                 <button class="switch mobile_list_btn" type="button" @click="store.change_sidebar()">
@@ -22,22 +28,21 @@
 </template>
 
 <script setup> 
-import {ref, onMounted} from 'vue'
+import { onMounted } from 'vue'
 
 import icon_sun from './icons/sun.vue'
 import icon_moon from './icons/moon.vue'
+import icon_search from './icons/search.vue'
 
 import { useStatusStore } from '../utils/store'
+import { storeToRefs } from 'pinia'
 
 const store = useStatusStore()
-
-// data
-const is_dark = ref(false)
+const { is_dark } = storeToRefs(store)
 
 // methods
 const handleDark = () => {
-    is_dark.value = !is_dark.value
-    store.change_comment_theme()
+    store.change_dark_mode()
     if( is_dark.value ){
         document.documentElement.className = 'dark'
         localStorage.setItem('theme', 'dark')
@@ -52,7 +57,6 @@ onMounted(() => {
     if( localStorage.getItem('theme') ) {
         if( localStorage.getItem('theme') == 'dark' ) {
             is_dark.value = true
-            store.comment_dark = true
             setTimeout(() => {
                 document.documentElement.className = 'dark'
             }, 50);
@@ -60,13 +64,11 @@ onMounted(() => {
             // document.documentElement.className = 'dark'
         } else {
             is_dark.value = false
-            store.comment_dark = false
             document.documentElement.className = ''
         }
     } else {
         localStorage.setItem('theme', 'light')
         is_dark.value = false
-        store.comment_dark = false
     }
     // if(document.body.clientWidth > 767) document.body.addEventListener('touchstart',() => {})
 })
@@ -105,6 +107,12 @@ onMounted(() => {
     }
 }
 
+.appearance {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
 .switch {
     border-radius: 0.5rem;
     border: 2px solid transparent;
@@ -117,8 +125,35 @@ onMounted(() => {
     }
 }
 
+.search_placeholder {
+    display: inline-block;
+    margin-left: 2rem;
+    margin: auto 2rem;
+}
+
 .mobile_list_btn {
     display: none;
+}
+
+@media (min-width: 768px) {
+    .search_container {
+        display: flex;
+    }
+    .search {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 2px solid transparent;
+        border-radius: 20px;
+        opacity: 0.8;
+        margin-right: 2rem;
+        background-color: var(--c-bg-light);
+        &:hover, &:active {
+            // border-color: var(--c-text);
+            border-color: var(--theme-color);
+            cursor: pointer;
+        }
+    }
 }
 
 
@@ -127,8 +162,8 @@ onMounted(() => {
         // 移动模式下header常驻
         opacity: 1 !important;
     }
-    .appearance {
-        display: flex;
+    .search_placeholder {
+        display: none;
     }
     .mobile_list_btn {
         position: relative;

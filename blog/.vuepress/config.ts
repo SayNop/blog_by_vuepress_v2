@@ -4,6 +4,8 @@ import { copyCodePlugin } from "vuepress-plugin-copy-code2"
 import { blogPlugin } from "vuepress-plugin-blog2"
 import { commentPlugin } from "vuepress-plugin-comment2"
 import { seoPlugin } from "vuepress-plugin-seo2"
+import { cut } from "nodejs-jieba"
+import { searchProPlugin } from "vuepress-plugin-search-pro"
 
 
 export default {
@@ -129,6 +131,24 @@ export default {
         }),
         seoPlugin({
             hostname: 'https://saynop.github.io/'
+        }),
+        searchProPlugin({
+            indexContent: true,  // 解析文章正文
+            hotKeys: [],
+            customFields: [
+                {
+                    getter: ({ frontmatter }) => frontmatter.tags as string[],
+                    formatter: `Tag: $content`,
+                },
+                {
+                    getter: ({ frontmatter }) => frontmatter.category as string[],
+                    formatter: "Category: $content",
+                },
+              ],
+            indexOptions: {
+              tokenize: (text, fieldName) =>
+                fieldName === "id" ? [text] : cut(text, true),
+            },
         }),
     ],
 }

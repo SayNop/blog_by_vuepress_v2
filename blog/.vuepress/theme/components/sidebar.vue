@@ -44,12 +44,12 @@ import { useStatusStore } from '../utils/store'
 import { storeToRefs } from 'pinia'
 
 
-const is_mobile = ref(false)
 const is_nav = ref(false)
 
 
 const store = useStatusStore()
 const { show_sidebar } = storeToRefs(store)
+const { is_mobile } = storeToRefs(store)
 
 
 // const frontmatter = usePageFrontmatter()
