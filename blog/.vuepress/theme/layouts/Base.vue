@@ -1,8 +1,8 @@
 <template>
     <div>
         <header_wrapper :style="{opacity: header_opacity}" />
-        <home_bg />
         <div class="main">
+            <home_bg />
             <div style="display: flex;">
                 <sidebar />
                 <div class="content_container">

@@ -14,13 +14,22 @@ body {
     font-size: 16px;
     font-weight: 400;
     color: var(--c-text);
-    background: url(/assets/imgs/bg02.jpeg) no-repeat center / cover;
-    background-attachment: fixed;
+    // background: url(/assets/imgs/bg02.jpeg) no-repeat center / cover;
+    // background-attachment: fixed;
     direction: ltr;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    &:before {
+        content: ' ';
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: url(/assets/imgs/bg02.jpeg) no-repeat center / cover;
+    }
 }
 
 .back-to-top {
