@@ -3,14 +3,7 @@
         <div class="header_container">
             <div><a class="header_title" href="/">Leopold's Blog</a></div>
             <div class="appearance">
-                <button type="button" class="search switch">
-                    <span class="search_container">
-                        <icon_search class="icon" style="vertical-align: middle;" />
-                        <span class="search_placeholder">
-                            Search
-                        </span>
-                    </span>
-                </button>
+                <SearchBox />
                 <button class="switch" @click="handleDark">
                     <span class="icon" style="display: block;">
                         <icon_sun v-show="!is_dark" />
@@ -125,35 +118,8 @@ onMounted(() => {
     }
 }
 
-.search_placeholder {
-    display: inline-block;
-    margin-left: 2rem;
-    margin: auto 2rem;
-}
-
 .mobile_list_btn {
     display: none;
-}
-
-@media (min-width: 768px) {
-    .search_container {
-        display: flex;
-    }
-    .search {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border: 2px solid transparent;
-        border-radius: 20px;
-        opacity: 0.8;
-        margin-right: 2rem;
-        background-color: var(--c-bg-light);
-        &:hover, &:active {
-            // border-color: var(--c-text);
-            border-color: var(--theme-color);
-            cursor: pointer;
-        }
-    }
 }
 
 
@@ -161,9 +127,6 @@ onMounted(() => {
     .header {
         // 移动模式下header常驻
         opacity: 1 !important;
-    }
-    .search_placeholder {
-        display: none;
     }
     .mobile_list_btn {
         position: relative;

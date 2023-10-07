@@ -20,6 +20,9 @@
     --code-bg-color: #292d3e;
     --font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     --content-padding: 1rem;
+    --screen-bg-color: hsla(0,0%,100%,.7);
+    --vp-tc: var(--theme-color);
+    --vp-tcl: var(--theme-color-light);
 }
 
 .dark {

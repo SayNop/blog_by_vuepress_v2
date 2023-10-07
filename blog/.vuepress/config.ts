@@ -60,7 +60,14 @@ export default {
             selector: [
                 '.content_container div[class*="language-"] pre',
             ],
-            showInMobile: true
+            showInMobile: true,
+            locales: {
+                '/zh/': {
+                    copy: "Copy code",
+                    copied: "Copied!",
+                    hint: "Copied successfully"
+                  }
+            }
         }),
         commentPlugin({
             provider: "Giscus",
@@ -134,6 +141,11 @@ export default {
         }),
         searchProPlugin({
             indexContent: true,  // 解析文章正文
+            locales: {
+                "/zh/": {
+                  placeholder: "Search",
+                },
+              },
             hotKeys: [],
             customFields: [
                 {

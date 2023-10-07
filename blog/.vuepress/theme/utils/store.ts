@@ -6,6 +6,7 @@ export const useStatusStore = defineStore('status', () => {
     const show_sidebar = ref(false)
     const is_dark = ref(false)
     const is_mobile = ref(false)
+    const show_searchbar = ref(false)
 
     const change_sidebar = () => {
         show_sidebar.value = !show_sidebar.value
@@ -15,5 +16,9 @@ export const useStatusStore = defineStore('status', () => {
         is_dark.value = !is_dark.value
     }
 
-    return { show_sidebar, is_dark, is_mobile, change_sidebar, change_dark_mode }
+    const change_searchbar = () => {
+        show_searchbar.value = !show_searchbar.value
+    }
+
+    return { show_sidebar, is_dark, show_searchbar, is_mobile, change_sidebar, change_dark_mode, change_searchbar }
 })
