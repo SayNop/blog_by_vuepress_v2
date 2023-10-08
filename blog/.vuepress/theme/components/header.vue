@@ -25,7 +25,6 @@ import { onMounted } from 'vue'
 
 import icon_sun from './icons/sun.vue'
 import icon_moon from './icons/moon.vue'
-import icon_search from './icons/search.vue'
 
 import { useStatusStore } from '../utils/store'
 import { storeToRefs } from 'pinia'
@@ -146,8 +145,7 @@ onMounted(() => {
             top: 10px;
         }
         .btn_middle {
-            top: 50%;
-            margin-top: -1px;
+            top: 47%
         }
         .btn_bottom {
             bottom: 10px;
