@@ -29,7 +29,8 @@ const handleScroll = () => {
     const scrollTop = window.pageYOffset
         || document.documentElement.scrollTop
         || document.body.scrollTop
-    header_opacity.value = scrollTop / 100
+    if (scrollTop < 500)
+        header_opacity.value = scrollTop / 100
 }
 
 onMounted(() => {
