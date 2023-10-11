@@ -26,6 +26,18 @@ export default defineClientConfig({
     TagMap,
   },
   enhance({ app, router, siteData }) {
+    // 检测安卓版本
+    // const ua = navigator.userAgent.toLowerCase()
+    // var version = 0
+    // if (ua.indexOf("android") > 0) {
+    //   var reg = /android [\d._]+/gi;
+    //   var v_info = ua.match(reg);
+    //   version = parseInt((v_info + "").replace(/[^0-9|_.]/ig, "").replace(/_/ig, ".").split('.')[0]) //得到版本号4.2.2
+    //   console.log(version, 'android version')
+    //   if(version < 11) 
+    //     alert('安卓浏览器版本过低！')
+    // }
+
     // 如需导入三方组件库
     const pinia = createPinia()
     app.use(pinia)
