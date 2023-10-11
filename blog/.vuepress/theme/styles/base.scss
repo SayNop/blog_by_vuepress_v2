@@ -70,6 +70,9 @@
     min-height: inherit;
     padding: 1rem;
     margin-bottom: 1.5rem;
+    ul {
+        padding-left: 0;
+    }
 }
 
 .category_tag_item_name {
@@ -125,6 +128,7 @@
 
 .top10_article_other_info {
     width: 35%;
+    min-width: 18rem;
     display: flex;
     justify-content: space-between;   
 }
@@ -152,7 +156,7 @@
     border-radius: 20px;
     opacity: 0.8;
     margin-right: 2rem;
-    background-color: var(--c-bg-light);
+    background-color: var(--c-bg);
     &:hover {
         border: 2px solid;
         border-color: var(--theme-color);
@@ -190,6 +194,7 @@
     }
     .top10_article_other_info {
         width: auto;
+        min-width: inherit;
     }
 }
 

@@ -48,13 +48,12 @@
 .pagination a:hover {
     text-decoration: none;
     color: var(--theme-color);
-    /* border-color: var(--theme-color); */
     transition-duration: .1s;
 }
 
 .pagination span.disable {
     color: var(--code-ln-color);
-    cursor: default;
+    cursor: not-allowed;
     border-color: transparent;
 }
 
@@ -89,7 +88,4 @@
     margin-left: 4px;
     clip-path: polygon(6.2px 3.2px, 7.3px 3.2px, 11.5px 7.5px, 11.5px 8.5px, 7.3px 12.8px, 6.2px 11.7px, 9.9px 8px, 6.2px 4.3px, 6.2px 3.2px);
 }
-
-
-
 </style>
