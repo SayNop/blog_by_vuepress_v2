@@ -164,9 +164,10 @@ onMounted(() => {
     div > span {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
+        transition: all .2s ease;
         &:hover {
             cursor: pointer;
-            background-color: var(--tag-color);
+            background-color: var(--c-bg-lighter);
             border-radius: 5px;
         }
     }
@@ -177,6 +178,9 @@ onMounted(() => {
         width: 91%;
         margin-left: auto;
         margin-right: auto;
+    }
+    .article_nav {
+        position: initial;
     }
     .sidebar_top {
         min-height: auto;

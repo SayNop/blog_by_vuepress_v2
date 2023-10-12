@@ -21,6 +21,7 @@ const props = defineProps({
     // margin-bottom 10px
     margin-right: 5px;
     cursor: pointer;
+    transition: all .2s ease;
     &:hover, &:active {
         border-color: var(--theme-color)
     }

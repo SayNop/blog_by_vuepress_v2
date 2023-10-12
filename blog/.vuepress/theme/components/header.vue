@@ -110,6 +110,7 @@ onMounted(() => {
     border: 2px solid transparent;
     background-color: transparent;
     padding: 0.5rem;
+    transition: all .2s ease;
     &:hover, &:active {
         // border-color: var(--c-text);
         border-color: var(--theme-color);

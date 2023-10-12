@@ -16,6 +16,7 @@ const props = defineProps({
     padding: 0 1rem;
     font-weight: 700;
     cursor: pointer;
+    transition: all .2s ease;
     &:hover {
         color: var(--theme-color);
     }
