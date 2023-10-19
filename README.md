@@ -27,9 +27,7 @@ vuepress-plugin-copy-code2<br>
 vuepress-plugin-comment2<br>
 
 ## update online
+use update shell script
 ```bash
-cp ~/Desktop/notes/*  ./blog/detail
-cd ../blog_by_vuepress_v2 && yarn blog:build
-rm -f ./blog/detail/*
-cd ../SayNop.github.io && ./update2.sh
+./update.sh
 ```
