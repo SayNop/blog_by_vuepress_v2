@@ -30,6 +30,6 @@ vuepress-plugin-comment2<br>
 ```bash
 cp ~/Desktop/notes/*  ./blog/detail
 cd ../blog_by_vuepress_v2 && yarn blog:build
-rm ./blog/detail/*
+rm -f ./blog/detail/*
 cd ../SayNop.github.io && ./update2.sh
 ```

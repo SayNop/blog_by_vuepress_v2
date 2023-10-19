@@ -108,13 +108,6 @@ onMounted(() => {
     color: var(--brand-color);
 }
 
-.tags {
-    padding: 15px;
-    span {
-        margin-bottom: 10px;
-    }
-}
-
 .sidebar_bottom {
     padding: 12px;
     text-align: center;

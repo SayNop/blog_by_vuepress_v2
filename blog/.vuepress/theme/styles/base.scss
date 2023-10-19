@@ -20,6 +20,12 @@
 .sider_keeper {
     width: var(--sidebar-width);
     margin-right: 1.5rem;
+    .tags {
+        padding: 15px;
+        span {
+            margin-bottom: 10px;  // 放入sidebar组件中在切换页面时会失效
+        }
+    }
 }
 
 .main {
