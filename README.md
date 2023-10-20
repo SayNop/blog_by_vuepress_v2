@@ -4,6 +4,9 @@ Blog based on vuepress v2
 ## visit online
 click [here](https://saynop.github.io/)
 
+## manual
+put markdown files in *./detail* directory
+
 ## run & build
 ```shell
 # before run

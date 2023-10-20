@@ -70,5 +70,11 @@ onMounted(() => {
 .giscus-wrapper {
     max-width: inherit;
     padding: var(--content-padding);
+    &::after {
+        content: 'Powered by Giscus';
+        z-index: 3;
+        color: #7a7a7a;
+        font-size: .8rem;
+    }
 }
 </style>
