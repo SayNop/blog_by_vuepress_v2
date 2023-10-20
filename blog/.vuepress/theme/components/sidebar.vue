@@ -18,7 +18,8 @@
                 <div class="connection">
                     <div class="grid_icon"><github_icon class="icon" /></div><div><span @click="open_link(themeData.connection_link.github)">{{ themeData.connection_link.github }}</span></div>
                     <div class="grid_icon"><gitee_icon class="icon" /></div><div><span @click="open_link(themeData.connection_link.gitee)">{{ themeData.connection_link.gitee }}</span></div>
-                    <div class="grid_icon"><mail_icon class="icon" /></div><div><span @click="open_link(themeData.connection_link.mail)">{{ themeData.connection_link.mail }}</span></div>
+                    <!-- <div class="grid_icon"><mail_icon class="icon" /></div><div><span @click="open_link(themeData.connection_link.mail)">{{ themeData.connection_link.mail }}</span></div> -->
+                    <div class="grid_icon"><mail_icon class="icon" /></div><div><a :href="'mailto:'+themeData.connection_link.mail">{{ themeData.connection_link.mail }}</a></div>
                 </div>
             </div>
         </div>
@@ -154,7 +155,7 @@ onMounted(() => {
     .grid_icon {
         text-align: center;
     }
-    div > span {
+    div > span, div > a {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         transition: all .2s ease;
@@ -163,6 +164,10 @@ onMounted(() => {
             background-color: var(--c-bg-lighter);
             border-radius: 5px;
         }
+    }
+    div > a {
+        color: inherit;
+        font-weight: inherit;
     }
 }
 
