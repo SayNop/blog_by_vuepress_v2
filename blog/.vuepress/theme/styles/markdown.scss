@@ -1,8 +1,15 @@
 // title
 h2 {
-    padding: 2rem 0 0.3rem;
+    padding: 2rem 0 .3rem;
 }
 
+h3 {
+    padding: 1rem 0 .3rem;
+}
+
+h4 {
+    padding: .5rem 0 .3rem;
+}
 
 // code line numbers
 div[class*=language-].line-numbers-mode .line-numbers {

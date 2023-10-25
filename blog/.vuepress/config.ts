@@ -17,7 +17,8 @@ export default {
         ]
     ],
     markdown: {
-        lineNumbers: true
+        lineNumbers: true,
+        headers : {level: [2, 3, 4]},
     },
     extendsMarkdown: (md) => {
         const origin_code_render = md.renderer.rules.fence
