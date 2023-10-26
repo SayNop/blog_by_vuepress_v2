@@ -3,11 +3,11 @@
         <ul>
             <li class="level2" v-for="item2 in pageData.headers" :key="item2.slug">
                 <a class="sidebar-link" :href="'#'+item2.slug" @click="show_sidebar=false">{{ item2.title }}</a>
-                <ul v-if="item2.children">
-                    <li class="level3" v-for="item3 in item2.children" :key="item3.slug">
+                <ul v-if="item2.children" class="level3">
+                    <li v-for="item3 in item2.children" :key="item3.slug">
                         <a class="sidebar-link" :href="'#'+item3.slug" @click="show_sidebar=false">{{ item3.title }}</a>
-                        <ul v-if="item3.children">
-                            <li class="level4" v-for="item4 in item3.children" :key="item4.slug">
+                        <ul v-if="item3.children" class="level4">
+                            <li v-for="item4 in item3.children" :key="item4.slug">
                                 <a class="sidebar-link" :href="'#'+item4.slug" @click="show_sidebar=false">{{ item4.title }}</a>
                             </li>
                         </ul>
@@ -39,21 +39,20 @@ const links = ref()
 
 const scroll_acitve = () => {
     let viewPortHeight = window.innerHeight || documentElement.clientHeight
-    for (let i = 0; i < titles.length; i++) {
+    for (let i = 0; i < titles.value.length; i++) {
         let { 
             top,
             left, 
             bottom, 
             right
-        } = titles[i].getBoundingClientRect()
+        } = titles.value[i].getBoundingClientRect()
         if (top >= 0 && bottom <= viewPortHeight) {
-            target.value = titles[i].href
+            target.value = titles.value[i].href
             break
         }
     }
-
     if (target.value) {
-        for (var link of links) {
+        for (var link of links.value) {
             if (link.href == target.value)
                 link.classList.add('active')
             else
@@ -63,10 +62,10 @@ const scroll_acitve = () => {
 }
 
 onMounted(() => {
-    window.addEventListener('scroll', scroll_acitve, true)
     // 在函数中声明将在每次滚动时都进行获取
     titles.value = document.getElementsByClassName('header-anchor')
     links.value = document.getElementsByClassName('sidebar-link')
+    window.addEventListener('scroll', scroll_acitve, true)
 })
 </script>
 
@@ -75,36 +74,46 @@ onMounted(() => {
 .article_sidebar {
     overflow: auto;
     max-height: calc(100vh - 34.5rem);
+    padding: .75rem 0;
     ul {
         padding: 0;
         margin: 0;
         list-style-type: none;
         li {
             line-height: 1.7;
-            padding-bottom: 2px;
+        }
+        a {
+            display: inline-block;
+            color: var(--c-text);
+            text-decoration: inherit;
+            // font-weight: 400;
+            padding: .15rem .25rem;
+            &:hover, &:active {
+                font-weight: var(--active-font);
+            }
         }
         .active {
             font-weight: var(--active-font);
             color: var(--theme-color);
         }
         .level2 {
-            font-size: 0.9rem;
+            // font-size: .95rem;
+            font-size: .9rem;
             padding-left: 0.5rem;
         }
         .level3 {
-            font-size: 0.8rem;
+            // font-size: .9rem;
+            font-size: .85rem;
             padding-left: 1rem;
         }
         .level4 {
-            font-size: 0.7rem;
-            padding-left: 1.5rem;
+            // font-size: .85rem;
+            // padding-left: 1.5rem;
+            font-size: .8rem;
+            padding-left: 1rem;
         }
-        a {
-            color: var(--c-text);
-            text-decoration: inherit;
-            &:hover, &:active {
-                font-weight: var(--active-font);
-            }
+        .level3 a, .level4 a {
+            padding: .1rem .25rem;
         }
     }
 }
