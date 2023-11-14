@@ -1,6 +1,7 @@
 <template>
     <div class="sider_keeper" :class="is_mobile ? (show_sidebar ? 'show_info' : 'hidden_info') : ''">
         <div class="folding" :class="$frontmatter.layout == 'Detail' && is_nav ? 'article_nav' : '' ">
+        <!-- <div class="folding"> -->
             <div class="sidebar_top card_border" :style="$frontmatter.layout=='Detail'?'min-height:1rem':''">
                 <div class="tags_brand">{{ $frontmatter.layout == 'Detail'?'本文大纲':'文章标签' }}</div>
                 <nav_wrapper  v-if="$frontmatter.layout == 'Detail'" />
@@ -68,11 +69,15 @@ const ScrollNav = () => {
     const scrollTop = window.pageYOffset
         || document.documentElement.scrollTop
         || document.body.scrollTop
+    // const el = document.getElementsByClassName('folding')
     // document.documentElement.clientHeight * 0.8(80vh) - header and margin -> document.body.clientHeight * 0.000888888888
-    if(!is_mobile.value && scrollTop > document.documentElement.clientHeight * 0.8 - 115)  // 105
+    if(!is_mobile.value && scrollTop > document.documentElement.clientHeight * 0.8 - 115) {  // 105
         is_nav.value = true
-    else
+        // el[0].classList.add("article_nav");
+    } else {
         is_nav.value = false
+        // el[0].classList.remove("article_nav")
+    }
 }
 
 

@@ -23,11 +23,21 @@ v16.20.0
 ## package
 vuepress = "2.0.0"<br>
 
+pinia<br>
+
+nodejs-jieba<br>
+
 vuepress-plugin-blog2<br>
 
 vuepress-plugin-copy-code2<br>
 
 vuepress-plugin-comment2<br>
+
+vuepress-plugin-search-pro<br>
+
+vuepress-plugin-seo2<br>
+
+vuepress-plugin-sitemap2<br>
 
 ## update online
 use update shell script

@@ -4,6 +4,7 @@ import { copyCodePlugin } from "vuepress-plugin-copy-code2"
 import { blogPlugin } from "vuepress-plugin-blog2"
 import { commentPlugin } from "vuepress-plugin-comment2"
 import { seoPlugin } from "vuepress-plugin-seo2"
+import { sitemapPlugin } from "vuepress-plugin-sitemap2"
 import { cut } from "nodejs-jieba"
 import { searchProPlugin } from "vuepress-plugin-search-pro"
 
@@ -138,6 +139,9 @@ export default {
             ],
         }),
         seoPlugin({
+            hostname: 'https://saynop.github.io/'
+        }),
+        sitemapPlugin({
             hostname: 'https://saynop.github.io/'
         }),
         searchProPlugin({
