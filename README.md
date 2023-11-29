@@ -1,13 +1,13 @@
 # Blog by vuepress2
 Blog based on vuepress v2
 
-## visit online
+## Visit online
 click [here](https://saynop.github.io/)
 
-## manual
+## Manual
 put markdown files in *./detail* directory
 
-## run & build
+## Run & build
 ```shell
 # before run
 yarn install
@@ -17,10 +17,12 @@ yarn blog:dev
 yarn blog:build
 ```
 
-## node version
+## Node Version
 v16.20.0
 
-## package
+## Package
+
+### package list
 vuepress = "2.0.0"<br>
 
 pinia<br>
@@ -39,7 +41,15 @@ vuepress-plugin-seo2<br>
 
 vuepress-plugin-sitemap2<br>
 
-## update online
+### package update
+
+- edit *package.json*
+
+- remove *node_modules directory* and *lock file*
+
+- install package `yarn install` or `npm install`
+
+## Update online
 use update shell script
 ```bash
 ./update.sh
