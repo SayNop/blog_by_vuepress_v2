@@ -9,6 +9,7 @@
     "blog:build": "vuepress build blog"
   },
   "devDependencies": {
+    "markdown-it-mathjax3": "^4.3.2",
     "nodejs-jieba": "^0.0.2",
     "pinia": "^2.1.6",
     "vuepress": "^2.0.0-beta.68",

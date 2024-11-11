@@ -7,6 +7,7 @@ import { seoPlugin } from "vuepress-plugin-seo2"
 import { sitemapPlugin } from "vuepress-plugin-sitemap2"
 import { cut } from "nodejs-jieba"
 import { searchProPlugin } from "vuepress-plugin-search-pro"
+import markdownitmathjax3 from "markdown-it-mathjax3"
 
 
 export default {
@@ -22,6 +23,8 @@ export default {
         headers : {level: [2, 3, 4]},
     },
     extendsMarkdown: (md) => {
+        md.use(markdownitmathjax3)
+        md.linkify.set({ fuzzyEmail: false })
         const origin_code_render = md.renderer.rules.fence
         const update_markdown_theme = (code_render) => (tokens, idx, options, env, self) => {
             const token = tokens[idx]

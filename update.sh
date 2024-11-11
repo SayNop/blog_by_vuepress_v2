@@ -1,4 +1,4 @@
-cp ~/Desktop/notes/*  ./blog/detail
+cp ~/Desktop/notes/*.md  ./blog/detail
 
 yarn blog:build
 
