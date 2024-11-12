@@ -23,3 +23,6 @@ coverage/
 # 忽略yarn
 yarn.lock
 package-lock.json
+
+# 忽略内容
+blog/detail/*.md
