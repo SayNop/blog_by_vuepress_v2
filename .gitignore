@@ -17,12 +17,16 @@ coverage/
 .eslintrc.js
 .babelrc
 
-# 忽略mac自带文件
-.DS_Store
-
 # 忽略yarn
 yarn.lock
 package-lock.json
 
 # 忽略内容
 blog/detail/*.md
+# 忽略图片
+blog/.vuepress/public/assets/imgs/*/*
+# 不忽略配置图
+!blog/.vuepress/public/assets/imgs/*
+
+# 忽略 mac 自带文件
+.DS_Store
