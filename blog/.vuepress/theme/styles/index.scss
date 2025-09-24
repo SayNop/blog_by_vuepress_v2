@@ -68,3 +68,10 @@ body {
     background: var(--theme-color);
     height: 3px;
 }
+
+/* 确保弹出图片使用默认定位 */
+// A + B → 相邻兄弟选择器（只选紧挨着的下一个 B）。
+// A ~ B → 通用兄弟选择器（选所有后续的兄弟 B）。
+.medium-zoom-overlay ~ .medium-zoom-image {
+    zoom: 1 !important;
+}
