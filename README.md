@@ -4,8 +4,18 @@ Blog based on vuepress v2
 ## Visit online
 click [here](https://saynop.github.io/)
 
-## Manual
-put markdown files in *./detail* directory
+
+## Usage Guide
+- Place your markdown files in the *blog/detail/* directory.  
+- Images referenced in markdown should be placed in the *public/assets/imgs* directory.  
+- To embed an image in markdown, use:  
+    ```markdown
+    ![alt text](/assets/imgs/example.png)
+    ```
+- If you need to scale an image, you can use HTML directly:
+    ```html
+    <img src="/assets/imgs/example.png" style="zoom: 50%" />
+    ```
 
 ## Run & build
 ```shell
