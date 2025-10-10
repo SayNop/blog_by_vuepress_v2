@@ -3,15 +3,15 @@
         <div v-for="item in articles" :key="item.key">
             <div class="article_card card_border" @click="$router.push(item.path)">
                 <div class="card_title_container title_color">
-                    <div class="article_title title_font">{{ item.info.title }}</div> 
-                    <div class="article_time">{{ item.info.date.slice(0,10) }}</div>
+                    <div class="article_title title_font">{{ item.info?.title }}</div> 
+                    <div class="article_time">{{ item.info?.date.slice(0,10) }}</div>
                 </div>
                 <div class="card_content_container">
-                    <div class="card_content">{{ item.info.discription }}</div>
+                    <div class="card_content">{{ item.info?.discription }}</div>
                     <div class="card_tag">
-                        <category_lable :datas="item.info.category[0]" />
-                        <tag_lable :tag_name="tag"  v-for="tag in item.info.tags" :key="tag" />
-                    </div> 
+                        <category_lable :datas="item.info?.category[0]" />
+                        <tag_lable :tag_name="tag"  v-for="tag in item.info?.tags" :key="tag" />
+                    </div>
                 </div>
             </div>
         </div>

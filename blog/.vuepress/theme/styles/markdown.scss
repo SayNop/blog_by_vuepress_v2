@@ -11,6 +11,13 @@ h4 {
     padding: .5rem 0 .3rem;
 }
 
+
+.article_container img {
+    max-width: calc(100% - .5rem) !important;
+    display: block;
+    margin: .5rem auto 1rem auto;
+}
+
 // code line numbers
 div[class*=language-].line-numbers-mode .line-numbers {
     padding-top: 1rem;
