@@ -1,3 +1,4 @@
+import { viteBundler } from '@vuepress/bundler-vite'
 import { themeDataPlugin } from '@vuepress/plugin-theme-data'
 import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
 import { copyCodePlugin } from "vuepress-plugin-copy-code2"
@@ -171,4 +172,32 @@ export default {
             },
         }),
     ],
+    bundler: viteBundler({
+        vuePluginOptions: {
+            template: {
+                compilerOptions: {
+                    isCustomElement: (tag) => [
+                        'mjx-container',
+                        'mjx-assistive-mml',
+                        'math',
+                        'mi',
+                        'mo',
+                        'mn',
+                        'msup',
+                        'mrow',
+                        'mfrac',
+                        'mstyle',
+                        'mspace',
+                        'msub',
+                        'mtable',
+                        'mlabeledtr',
+                        'mtd',
+                        'mtext',
+                        'mtr',
+                        'msubsup',
+                    ].includes(tag),
+                },
+            },
+        },
+    }),
 }
