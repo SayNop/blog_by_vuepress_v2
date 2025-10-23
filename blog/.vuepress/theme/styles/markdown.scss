@@ -18,6 +18,13 @@ h4 {
     margin: .5rem auto 1rem auto;
 }
 
+// math
+.MathJax {
+   padding: .5em;
+   overflow-x: auto; 
+   overflow-y: hidden;
+}
+
 // code line numbers
 div[class*=language-].line-numbers-mode .line-numbers {
     padding-top: 1rem;
