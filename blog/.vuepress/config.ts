@@ -172,6 +172,7 @@ export default {
             },
         }),
     ],
+    // vue 打包时不将公式标签识别为组件
     bundler: viteBundler({
         vuePluginOptions: {
             template: {
