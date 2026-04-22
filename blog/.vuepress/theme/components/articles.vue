@@ -7,7 +7,7 @@
                     <div class="article_time">{{ item.info?.date.slice(0,10) }}</div>
                 </div>
                 <div class="card_content_container">
-                    <div class="card_content">{{ item.info?.discription }}</div>
+                    <div class="card_content">{{ item.info?.description }}</div>
                     <div class="card_tag">
                         <category_lable :datas="item.info?.category[0]" />
                         <tag_lable :tag_name="tag"  v-for="tag in item.info?.tags" :key="tag" />

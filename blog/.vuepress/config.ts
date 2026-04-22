@@ -91,7 +91,7 @@ export default {
             getInfo: ({ frontmatter, title }) => ({
                 title,
                 date: frontmatter.date || null,
-                discription: frontmatter.discription || '',
+                description: frontmatter.description || '',
                 category: frontmatter["category"] || [],
                 tags: frontmatter["tags"] || [],
             }),
