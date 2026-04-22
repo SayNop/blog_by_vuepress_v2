@@ -8,19 +8,19 @@ click [here](https://saynop.github.io/)
 ## Usage Guide
 - Place your markdown files in the *blog/detail/* directory. 
     - markdown file format (**`layout: Detail` cannot be change!**)
-        ```
+        ```markdown
         ---
         layout: Detail
-        title: put your title here.
+        title: Your title
         date: pub date
-        description: content description
+        description: Your description
         category: 
-            - category
+            - Your category
         tags:
-            - tags1
-            - tags2
+            - Your tag1
+            - Your tag2
         ---
-        put your content here.
+        Put your content here.
     ```
 - Images referenced in markdown should be placed in the *public/assets/imgs* directory.  
 - To embed an image in markdown, use:  
