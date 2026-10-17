@@ -35,7 +35,7 @@ click [here](https://saynop.github.io/)
 ## Run & build
 ```shell
 # before run
-yarn install
+npm install
 # run
 yarn blog:dev
 # build
@@ -43,7 +43,7 @@ yarn blog:build
 ```
 
 ## Node Version
-v16.20.0
+v20.20.2
 
 ## Package
 
